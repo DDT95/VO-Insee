@@ -85,6 +85,7 @@
     });
 
     document.getElementById("mapStatus").textContent = `${state.communes.length} communes chargées`;
+    document.getElementById("mapLoader")?.classList.add("hidden");
     map.invalidateSize();
     if (deptLayer) map.fitBounds(deptLayer.getBounds(), { padding: [24, 24], animate: false });
 
@@ -101,6 +102,10 @@
     } else if (initialParams.get("type") === "commune" && state.communesByCode.has(initialParams.get("id"))) {
       selectCommune(initialParams.get("id"));
     }
+  }).catch(() => {
+    const loader = document.getElementById("mapLoader");
+    if (loader) loader.innerHTML = "<span>Chargement des données impossible. Rechargez la page.</span>";
+    document.getElementById("mapStatus").textContent = "Erreur de chargement des données";
   });
 
   function prepareEpciColors() {
@@ -321,6 +326,20 @@
     renderDefaultDetail();
   });
 
+  // ---------- Tout masquer ----------
+  document.getElementById("hideAll").addEventListener("click", () => {
+    state.selected = null;
+    state.activeLayer = null;
+    searchInput.value = "";
+    searchResults.hidden = true;
+    sidebarEl.classList.remove("open");
+    mobileLayersBtn.setAttribute("aria-expanded", "false");
+    document.querySelectorAll(".layer-card").forEach((b) => b.classList.remove("active"));
+    document.getElementById("detailPanel").classList.remove("open");
+    document.getElementById("mapStatus").textContent = "Val-d'Oise · rien sélectionné";
+    applyChoropleth();
+  });
+
   // ---------- Comprendre dialog ----------
   const comprendreDialog = document.getElementById("comprendreDialog");
   document.getElementById("openComprendre3")?.addEventListener("click", () => comprendreDialog.showModal());
@@ -391,9 +410,9 @@
       return `
         <div class="kpi-grid">
           <div class="kpi-tile"><small>Actifs occupés résidents</small><strong>${fmt(e.actifs_occupes_residents, "pers.")}</strong></div>
+          <div class="kpi-tile"><small>Taux de chômage (RP)</small><strong>${fmt(e.chomage_rp?.taux_chomage_15_64?.value, "%")}</strong></div>
+          <div class="kpi-tile"><small>Salaire net moyen (EQTP)</small><strong>${fmt(e.salaires?.par_sexe?.ensemble?.value, "€")}</strong></div>
           <div class="kpi-tile"><small>Part de cadres</small><strong>${fmt(f(e.profession, "Cadres"), "%")}</strong></div>
-          <div class="kpi-tile"><small>Part d'emplois stables</small><strong>${fmt(f(e.employment, "Emploi stable"), "%")}</strong></div>
-          <div class="kpi-tile"><small>Part voiture (trajet travail)</small><strong>${fmt(f(e.transport, "Voiture, camion, fourgonnette"), "%")}</strong></div>
         </div>
         <p class="detail-method">${e.scope_note}</p>`;
     },
@@ -415,13 +434,14 @@
     economie_equipements: (p) => {
       const e = p.themes.economie_equipements || {};
       const ent = e.entreprises || {};
+      const creations = e.creations || {};
       const equip = e.equipements?.denombrement || {};
       return `
         <div class="kpi-grid">
           <div class="kpi-tile"><small>Établissements actifs</small><strong>${fmt(ent.etablissements_actifs?.value, "étab.")}</strong><em>${ent.annee || ""}</em></div>
+          <div class="kpi-tile"><small>Créations d'entreprises (2025)</small><strong>${fmt(creations.entreprises_2025?.value, "")}</strong></div>
           <div class="kpi-tile"><small>Pharmacies</small><strong>${fmt(equip["Pharmacie"]?.value, "équip.")}</strong></div>
           <div class="kpi-tile"><small>Médecins généralistes</small><strong>${fmt(equip["Médecin généraliste"]?.value, "équip.")}</strong></div>
-          <div class="kpi-tile"><small>Écoles (maternelle + primaire)</small><strong>${fmt((equip["École maternelle"]?.value || 0) + (equip["École primaire"]?.value || 0), "équip.")}</strong></div>
         </div>
         <p class="detail-method">Sources : Insee REE ${ent.annee || ""} (entreprises), Insee BPE ${e.equipements?.annee || ""} (équipements).</p>`;
     },

@@ -1,0 +1,47 @@
+name: Rafraîchir les données Insee (loader)
+
+on:
+  schedule:
+    - cron: "0 5 1 * *" # le 1er de chaque mois, 05:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cloner les dépôts sources (logement, domicile-travail)
+        run: |
+          git clone --depth 1 https://github.com/DDT95/val-doise-logement-habitat.git ../val-doise-logement-habitat
+          git clone --depth 1 https://github.com/DDT95/val-doise-domicile-travail.git ../val-doise-domicile-travail
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances Python
+        run: pip install pandas pyarrow
+
+      - name: Télécharger la Base du dossier complet Insee
+        run: |
+          mkdir -p data/raw
+          curl -sL -A "Mozilla/5.0" -o data/raw/dossier_complet.parquet "https://www.insee.fr/fr/statistiques/fichier/5359146/dossier_complet.parquet"
+          ls -la data/raw/dossier_complet.parquet
+
+      - name: Régénérer les profils (logement, emploi & mobilités, habitants partiel)
+        run: python3 scripts/build_profiles.py
+
+      - name: Enrichir habitants, emploi & mobilités, économie & équipements
+        run: python3 scripts/build_dossier_complet.py
+
+      - name: Committer si les données ont changé
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/processed
+          git diff --cached --quiet || git commit -m "chore: rafraîchissement mensuel des données Insee (loader automatique)"
+          git push

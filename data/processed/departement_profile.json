@@ -334,7 +334,63 @@
      "value": 238647.4000000001,
      "pct": 43.6
     }
-   ]
+   ],
+   "chomage_rp": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "scope_note": "Chômage au sens du recensement, population 15-64 ans — champ RP, distinct des actifs occupés résidents MOBPRO ci-dessus.",
+    "taux_chomage_15_64": {
+     "value": 11.8,
+     "unit": "%",
+     "quality_flag": "ok",
+     "source": "insee_dossier_complet"
+    }
+   },
+   "salaires": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Salaire net mensuel moyen en équivalent temps plein (EQTP).",
+    "par_sexe": {
+     "ensemble": {
+      "value": 2642.744878,
+      "year": 2023,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "hommes": {
+      "value": 2730.369832,
+      "year": 2023,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "femmes": {
+      "value": 2487.107748,
+      "year": 2023,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    },
+    "par_csp": [
+     {
+      "label": "Cadres",
+      "value": 4576.0
+     },
+     {
+      "label": "Professions intermédiaires",
+      "value": 2706.0
+     },
+     {
+      "label": "Employés",
+      "value": 1998.0
+     },
+     {
+      "label": "Ouvriers",
+      "value": 1983.0
+     }
+    ]
+   }
   },
   "habitants": {
    "population_totale": {
@@ -452,6 +508,82 @@
       "pct": 13.8
      }
     ]
+   },
+   "statut_conjugal": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Population de 15 ans ou plus.",
+    "repartition": [
+     {
+      "label": "Célibataire",
+      "value": 327383.3,
+      "pct": 32.4
+     },
+     {
+      "label": "Marié",
+      "value": 434948.6,
+      "pct": 43.0
+     },
+     {
+      "label": "En concubinage, union libre",
+      "value": 94445.1,
+      "pct": 9.3
+     },
+     {
+      "label": "Pacsé",
+      "value": 44365.3,
+      "pct": 4.4
+     },
+     {
+      "label": "Divorcé",
+      "value": 58587.1,
+      "pct": 5.8
+     },
+     {
+      "label": "Veuf",
+      "value": 50651.2,
+      "pct": 5.0
+     }
+    ]
+   },
+   "scolarisation": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Taux de scolarisation par tranche d'âge.",
+    "par_tranche": [
+     {
+      "label": "2-5 ans",
+      "value": 52342.8,
+      "pct": 72.7
+     },
+     {
+      "label": "6-10 ans",
+      "value": 91241.9,
+      "pct": 97.4
+     },
+     {
+      "label": "11-14 ans",
+      "value": 70680.0,
+      "pct": 98.1
+     },
+     {
+      "label": "15-17 ans",
+      "value": 51768.7,
+      "pct": 96.4
+     },
+     {
+      "label": "18-24 ans",
+      "value": 64108.6,
+      "pct": 56.3
+     },
+     {
+      "label": "25-29 ans",
+      "value": 7655.0,
+      "pct": 9.6
+     }
+    ]
    }
   },
   "economie_equipements": {
@@ -509,7 +641,101 @@
       "value": 6463.0,
       "pct": 6.4
      }
-    ]
+    ],
+    "par_taille": [
+     {
+      "label": "0 salarié",
+      "value": 3912.0,
+      "pct": 10.8
+     },
+     {
+      "label": "1 à 4 salariés",
+      "value": 19068.0,
+      "pct": 52.6
+     },
+     {
+      "label": "5 à 9 salariés",
+      "value": 6304.0,
+      "pct": 17.4
+     },
+     {
+      "label": "10 à 19 salariés",
+      "value": 3575.0,
+      "pct": 9.9
+     },
+     {
+      "label": "20 à 49 salariés",
+      "value": 2036.0,
+      "pct": 5.6
+     },
+     {
+      "label": "50 salariés ou plus",
+      "value": 1323.0,
+      "pct": 3.7
+     }
+    ],
+    "par_taille_note": "Champ légèrement plus restreint que le total des établissements actifs (résultats sectoriels REE) : pourcentages calculés sur le total des tranches, pas sur le total ci-dessus."
+   },
+   "creations": {
+    "annee": 2025,
+    "quality_flag": "ok",
+    "entreprises_2025": {
+     "value": 25665.0,
+     "year": 2025,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok"
+    },
+    "etablissements_2025": {
+     "value": 27945.0,
+     "year": 2025,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok"
+    }
+   },
+   "tourisme": {
+    "hotels": {
+     "etablissements": {
+      "value": 99.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "places": {
+      "value": 11386.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    },
+    "campings": {
+     "etablissements": {
+      "value": 7.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "places": {
+      "value": 830.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    },
+    "autres_hebergements": {
+     "etablissements": {
+      "value": 11.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "places_lits": {
+      "value": 4925.0,
+      "year": 2026,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    },
+    "annee": 2026
    },
    "equipements": {
     "annee": 2025,
@@ -538,6 +764,30 @@
       "source": "insee_dossier_complet",
       "quality_flag": "ok"
      },
+     "Boulangerie-pâtisserie": {
+      "value": 709.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Station-service": {
+      "value": 112.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Station de recharge de véhicules électriques": {
+      "value": 437.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Coiffure": {
+      "value": 1309.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
      "Médecin généraliste": {
       "value": 803.0,
       "year": 2025,
@@ -556,6 +806,24 @@
       "source": "insee_dossier_complet",
       "quality_flag": "ok"
      },
+     "Masseur-kinésithérapeute": {
+      "value": 1002.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Infirmier": {
+      "value": 1016.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Psychologue": {
+      "value": 579.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
      "École maternelle": {
       "value": 303.0,
       "year": 2025,
@@ -568,6 +836,12 @@
       "source": "insee_dossier_complet",
       "quality_flag": "ok"
      },
+     "École élémentaire": {
+      "value": 308.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
      "Collège": {
       "value": 153.0,
       "year": 2025,
@@ -576,6 +850,12 @@
      },
      "Lycée général et/ou technologique": {
       "value": 56.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Lycée d'enseignement professionnel": {
+      "value": 10.0,
       "year": 2025,
       "source": "insee_dossier_complet",
       "quality_flag": "ok"

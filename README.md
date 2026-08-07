@@ -19,8 +19,10 @@ Aucune donnée n'est recalculée ou inventée pour ce dépôt : les thèmes Loge
 |---|---|---|
 | **Logement** | Complet | Repris de l'observatoire logement (parc, occupation, vacance, social, construction, rénovation). |
 | **Emploi & Mobilités** | Complet | Repris de l'observatoire domicile-travail (CSP, emploi, temps de travail, transport). Porte sur les **actifs occupés résidents**, pas la population générale — signalé partout où c'est affiché. |
-| **Habitants** | Complet | Population, pyramide des âges, diplômes, structure des familles (Insee RP2023), niveau de vie médian et taux de pauvreté (Insee-DGFiP Filosofi 2023) — via la Base du dossier complet. |
-| **Économie & Équipements** | Complet | Entreprises et établissements actifs par secteur (Insee REE 2024), commerces, santé et éducation de proximité (Insee BPE 2025) — via la Base du dossier complet. |
+| **Habitants** | Complet | Population, pyramide des âges, diplômes, structure des familles, statut conjugal, scolarisation (Insee RP2023), niveau de vie médian et taux de pauvreté (Insee-DGFiP Filosofi 2023) — via la Base du dossier complet. |
+| **Économie & Équipements** | Complet | Entreprises actives par secteur et taille, créations 2025 (Insee REE), ~20 types de commerces/santé/éducation de proximité (Insee BPE 2025), capacité touristique (hôtels, campings) — via la Base du dossier complet. |
+
+Emploi & Mobilités inclut aussi, en complément du socle domicile-travail : taux de chômage au sens du recensement (Insee RP2023, champ différent des actifs occupés MOBPRO, explicitement distingué) et salaire net mensuel moyen par sexe et catégorie socioprofessionnelle (Insee-DADS 2023).
 
 Le détail précis de chaque source (producteur, millésime, licence, prudence méthodologique) est dans [`data/sources.json`](data/sources.json).
 
@@ -30,7 +32,10 @@ Sur chaque fiche territoriale, l'utilisateur choisit lui-même entre un PDF mis 
 
 ## Mise à jour des données
 
-Les données Insee (RP, Filosofi, Sirene, BPE) ne sont pas publiées en flux continu — elles sortent par millésime. Un workflow GitHub Actions ([`check-insee-updates.yml`](.github/workflows/check-insee-updates.yml)) vérifie chaque semaine si les pages sources ont changé et ouvre une issue automatiquement le cas échéant, plutôt que de dépendre d'une vérification manuelle.
+Les données Insee (RP, Filosofi, REE, BPE) ne sont pas publiées en flux continu — elles sortent par millésime. Deux workflows GitHub Actions s'en occupent, sans intervention manuelle :
+
+- [`check-insee-updates.yml`](.github/workflows/check-insee-updates.yml) — vérifie chaque semaine si les pages sources ont changé et ouvre une issue le cas échéant.
+- [`refresh-data.yml`](.github/workflows/refresh-data.yml) — le **loader** : chaque mois (et à la demande), retélécharge la Base du dossier complet Insee, relance `build_profiles.py` puis `build_dossier_complet.py`, et committe automatiquement si les données ont changé.
 
 ## Développement local
 

@@ -88,6 +88,13 @@
             { key: "part_tc", label: "Part transports en commun", unit: "%", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => window.VOInsee.helpers.findPct(p.themes.emploi_mobilites.transport, "Transports en commun") },
           ],
         },
+        {
+          title: "CHÔMAGE & SALAIRES",
+          layers: [
+            { key: "taux_chomage", label: "Taux de chômage (RP, 15-64 ans)", unit: "%", ramp: ["#fdeef2", "#e85d8e", "#7a1338"], get: (p) => p.themes.emploi_mobilites.chomage_rp?.taux_chomage_15_64?.value },
+            { key: "salaire_moyen", label: "Salaire net mensuel moyen (EQTP)", unit: "€", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.emploi_mobilites.salaires?.par_sexe?.ensemble?.value },
+          ],
+        },
       ],
       ranking: { label: "La plus forte part de cadres", unit: "%", direction: "desc", get: (p) => window.VOInsee.helpers.findPct(p.themes.emploi_mobilites.profession, "Cadres") },
       summary: (p) => {
@@ -147,6 +154,13 @@
           layers: [
             { key: "nb_pharmacies", label: "Nombre de pharmacies", unit: "équip.", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.economie_equipements.equipements?.denombrement?.["Pharmacie"]?.value },
             { key: "nb_medecins", label: "Nombre de médecins généralistes", unit: "équip.", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.economie_equipements.equipements?.denombrement?.["Médecin généraliste"]?.value },
+          ],
+        },
+        {
+          title: "DYNAMISME & TOURISME",
+          layers: [
+            { key: "creations_entreprises", label: "Créations d'entreprises (2025)", unit: "créations", ramp: ["#eef2f9", "#3978b8", "#0b2f57"], get: (p) => p.themes.economie_equipements.creations?.entreprises_2025?.value },
+            { key: "part_zero_salarie", label: "Part d'établissements sans salarié", unit: "%", ramp: ["#f3eef9", "#6f4c9b", "#2e1a4d"], get: (p) => window.VOInsee.helpers.findPct(p.themes.economie_equipements.entreprises?.par_taille, "0 salarié") },
           ],
         },
       ],

@@ -53,6 +53,12 @@
     return `<article class="chart-card ${tone}"><h3>${title}</h3>${data.map((d) => `<div class="bar-row"><span title="${d.label}">${d.label}</span><div class="bar-track"><i style="--pct:${d.pct}%"></i></div><b>${d.pct.toLocaleString("fr-FR")}%</b></div>`).join("")}</article>`;
   }
 
+  function barsValue(title, rows, unit = "", tone = "") {
+    if (!rows.length) return `<article class="chart-card ${tone}"><h3>${title}</h3><p class="data-missing">Données non disponibles.</p></article>`;
+    const max = Math.max(...rows.map((r) => r.value), 1);
+    return `<article class="chart-card ${tone}"><h3>${title}</h3>${rows.map((r) => `<div class="bar-row"><span title="${r.label}">${r.label}</span><div class="bar-track"><i style="--pct:${Math.max(4, (r.value / max) * 100)}%"></i></div><b>${fmt(r.value)}${unit}</b></div>`).join("")}</article>`;
+  }
+
   function section(kicker, title, content, note = "") {
     return `<section class="section"><div class="section-head"><div><small>${kicker}</small><h2>${title}</h2></div>${note ? `<p>${note}</p>` : ""}</div>${content}</section>`;
   }
@@ -82,9 +88,10 @@
         ${kpi("Nombre de familles", h.structure_familles.nombre_familles, "n")}
       </div>`)}
       ${section("02 · ÂGES ET DIPLÔMES", "Qui vit sur ce territoire ?", `<div class="charts-grid visual-grid">${donut("Pyramide des âges (3 tranches)", asDonut(h.pyramide_ages.tranches), "20-64 ans", (h.pyramide_ages.tranches.find((r) => r.label === "20 à 64 ans") || {}).pct + "%")}${bars("Diplôme le plus élevé (pop. non scolarisée 15+)", asDonut(h.diplomes.repartition), "orange")}</div>`, "Insee RP2023.")}
-      ${section("03 · FAMILLES", "Composition des familles", `<div class="charts-grid visual-grid">${donut("Type de famille", asDonut(h.structure_familles.repartition), "couples avec enfant(s)", (h.structure_familles.repartition.find((r) => r.label === "Couple avec enfant(s)") || {}).pct + "%", "green")}</div>`, "Insee RP2023.")}
-      ${section("04 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, Recensement de la population 2023 (âges, diplômes, familles) ; Insee-DGFiP, Filosofi 2023 (niveau de vie, pauvreté).<br><br>
+      ${section("03 · FAMILLES ET STATUT CONJUGAL", "Composition des familles", `<div class="charts-grid visual-grid">${donut("Type de famille", asDonut(h.structure_familles.repartition), "couples avec enfant(s)", (h.structure_familles.repartition.find((r) => r.label === "Couple avec enfant(s)") || {}).pct + "%", "green")}${donut("Statut conjugal (15 ans ou plus)", asDonut(h.statut_conjugal ? h.statut_conjugal.repartition : []), "en couple", (() => { const r = h.statut_conjugal ? h.statut_conjugal.repartition : []; const marie = (r.find((x) => x.label === "Marié") || {}).pct || 0; const pacse = (r.find((x) => x.label === "Pacsé") || {}).pct || 0; const conc = (r.find((x) => x.label === "En concubinage, union libre") || {}).pct || 0; return Math.round((marie + pacse + conc) * 10) / 10; })() + "%", "orange")}</div>`, "Insee RP2023.")}
+      ${section("04 · SCOLARISATION", "Taux de scolarisation par âge", `<div class="charts-grid visual-grid">${bars("Part de la population scolarisée", (h.scolarisation ? h.scolarisation.par_tranche : []).map((r) => ({ label: r.label, pct: r.pct })))}</div>`, "Insee RP2023. Le recul après 25 ans reflète la fin des études, pas une anomalie.")}
+      ${section("05 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, Recensement de la population 2023 (âges, diplômes, familles, statut conjugal, scolarisation) ; Insee-DGFiP, Filosofi 2023 (niveau de vie, pauvreté).<br><br>
         <strong>Limites :</strong> Filosofi masque les communes de moins de 50 ménages fiscaux (secret statistique) — affiché comme tel, jamais comme zéro. Diplôme calculé sur la population non scolarisée de 15 ans ou plus.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
@@ -93,16 +100,25 @@
 
   function renderEmploi(t, territoryWord) {
     const e = t.emploi_mobilites;
+    const chomage = e.chomage_rp;
+    const salaires = e.salaires;
     return `
       ${section("01 · REPÈRES", "Actifs occupés résidents", `<div class="kpi-grid kpi-grid-six">
         <div class="kpi"><small>Actifs occupés résidents</small><strong>${fmt(e.actifs_occupes_residents)}</strong></div>
+        ${chomage ? kpi("Taux de chômage (15-64 ans)", chomage.taux_chomage_15_64, "%") : ""}
+        ${salaires ? kpi("Salaire net mensuel moyen (EQTP)", salaires.par_sexe.ensemble, "n") : ""}
       </div>`, e.scope_note)}
       ${section("02 · CATÉGORIES SOCIOPROFESSIONNELLES", "Profils des actifs occupés", `<div class="charts-grid visual-grid">${donut("Catégorie socioprofessionnelle", asDonut(e.profession), "principale", (e.profession && e.profession.length ? e.profession.slice().sort((a, b) => b.pct - a.pct)[0].pct.toLocaleString("fr-FR") : "n. d.") + "%")}${bars("Niveau de diplôme (actifs occupés)", asDonut(t.habitants_partiel ? t.habitants_partiel.diploma_actifs_occupes : []), "orange")}</div>`)}
       ${section("03 · EMPLOI", "Stabilité et temps de travail", `<div class="charts-grid visual-grid">${donut("Type d'emploi", asDonut(e.employment), "emploi stable", (e.employment && e.employment.find((r) => r.label === "Emploi stable") || {}).pct + "%", "green")}${donut("Temps de travail", asDonut(e.worktime), "temps complet", (e.worktime && e.worktime.find((r) => r.label === "Temps complet") || {}).pct + "%")}</div>`)}
-      ${section("04 · DÉPLACEMENTS DOMICILE-TRAVAIL", "Comment les actifs se déplacent-ils ?", `<div class="charts-grid visual-grid">${bars("Mode de transport principal", asDonut(e.transport))}${donut("Nombre de voitures du ménage", asDonut(e.cars), "sans voiture", (e.cars && e.cars.find((r) => r.label === "Sans voiture") || {}).pct + "%", "orange")}</div>`)}
-      ${section("05 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, RP2022, fichier détail Mobilités professionnelles, pondéré par IPONDI.<br><br>
-        <strong>Limites :</strong> ${e.scope_note} Effectifs pondérés par sondage ; comparaisons déconseillées sur les petits territoires à faible effectif.<br><br>
+      ${section("04 · CHÔMAGE ET SALAIRES", "Au-delà des actifs occupés", `<div class="kpi-grid kpi-grid-six">
+        ${chomage ? kpi("Taux de chômage RP (15-64 ans)", chomage.taux_chomage_15_64, "%") : ""}
+        ${salaires ? kpi("Salaire moyen — hommes", salaires.par_sexe.hommes, "n") : ""}
+        ${salaires ? kpi("Salaire moyen — femmes", salaires.par_sexe.femmes, "n") : ""}
+      </div>${salaires && salaires.par_csp && salaires.par_csp.length ? barsValue("Salaire net mensuel moyen par catégorie", salaires.par_csp, " €") : ""}`, chomage ? chomage.scope_note : "")}
+      ${section("05 · DÉPLACEMENTS DOMICILE-TRAVAIL", "Comment les actifs se déplacent-ils ?", `<div class="charts-grid visual-grid">${bars("Mode de transport principal", asDonut(e.transport))}${donut("Nombre de voitures du ménage", asDonut(e.cars), "sans voiture", (e.cars && e.cars.find((r) => r.label === "Sans voiture") || {}).pct + "%", "orange")}</div>`)}
+      ${section("06 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, RP2022, fichier détail Mobilités professionnelles, pondéré par IPONDI (CSP, emploi, déplacements) ; Insee RP2023 (chômage au sens du recensement) ; Insee-DADS 2023 (salaires nets EQTP).<br><br>
+        <strong>Limites :</strong> ${e.scope_note} ${chomage ? chomage.scope_note : ""} Effectifs pondérés par sondage ; comparaisons déconseillées sur les petits territoires à faible effectif.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
     `;
@@ -164,21 +180,29 @@
   function renderEconomie(t) {
     const e = t.economie_equipements || {};
     const ent = e.entreprises || {};
+    const creations = e.creations || {};
+    const tourisme = e.tourisme || {};
     const equip = e.equipements?.denombrement || {};
-    const equipRows = Object.entries(equip).map(([label, node]) => ({ label, pct: null, value: node.value })).filter((r) => r.value != null);
-    const maxEquip = Math.max(1, ...equipRows.map((r) => r.value));
-    const equipBars = equipRows.length
-      ? `<article class="chart-card"><h3>Équipements de proximité</h3>${equipRows.map((r) => `<div class="bar-row"><span title="${r.label}">${r.label}</span><div class="bar-track"><i style="--pct:${Math.max(4, (r.value / maxEquip) * 100)}%"></i></div><b>${fmt(r.value)}</b></div>`).join("")}</article>`
-      : comingSoon("Équipements de proximité", "aucun équipement dénombré sur ce territoire.");
+    const equipRows = Object.entries(equip).map(([label, node]) => ({ label, value: node.value })).filter((r) => r.value != null).sort((a, b) => b.value - a.value);
+    const equipBars = equipRows.length ? barsValue("Équipements de proximité", equipRows) : comingSoon("Équipements de proximité", "aucun équipement dénombré sur ce territoire.");
+    const tailleDonut = ent.par_taille && ent.par_taille.length ? donut("Établissements par taille", asDonut(ent.par_taille), "0 salarié", (ent.par_taille.find((r) => r.label === "0 salarié") || {}).pct + "%", "green") : "";
+    const tourismeRows = [
+      tourisme.hotels && tourisme.hotels.etablissements && tourisme.hotels.etablissements.value ? { label: "Hôtels", value: tourisme.hotels.etablissements.value } : null,
+      tourisme.campings && tourisme.campings.etablissements && tourisme.campings.etablissements.value ? { label: "Campings", value: tourisme.campings.etablissements.value } : null,
+      tourisme.autres_hebergements && tourisme.autres_hebergements.etablissements && tourisme.autres_hebergements.etablissements.value ? { label: "Autres hébergements touristiques", value: tourisme.autres_hebergements.etablissements.value } : null,
+    ].filter(Boolean);
     return `
       ${section("01 · REPÈRES", "Entreprises et établissements", `<div class="kpi-grid kpi-grid-six">
         ${kpi("Établissements actifs", ent.etablissements_actifs, "n", ent.annee ? "Insee REE " + ent.annee : "")}
+        ${kpi("Créations d'entreprises (2025)", creations.entreprises_2025, "n")}
+        ${kpi("Créations d'établissements (2025)", creations.etablissements_2025, "n")}
       </div>`)}
-      ${section("02 · SECTEURS D'ACTIVITÉ", "Où sont les établissements ?", `<div class="charts-grid visual-grid">${donut("Répartition par secteur", asDonut(ent.secteurs), "1ᵉʳ secteur", (ent.secteurs && ent.secteurs.length ? ent.secteurs.slice().sort((a, b) => b.pct - a.pct)[0].pct.toLocaleString("fr-FR") : "n. d.") + "%")}</div>`, "Insee, Répertoire des entreprises et établissements (REE).")}
+      ${section("02 · SECTEURS D'ACTIVITÉ", "Où sont les établissements ?", `<div class="charts-grid visual-grid">${donut("Répartition par secteur", asDonut(ent.secteurs), "1ᵉʳ secteur", (ent.secteurs && ent.secteurs.length ? ent.secteurs.slice().sort((a, b) => b.pct - a.pct)[0].pct.toLocaleString("fr-FR") : "n. d.") + "%")}${tailleDonut}</div>`, (ent.par_taille_note || "") + " Insee, Répertoire des entreprises et établissements (REE).")}
       ${section("03 · ÉQUIPEMENTS", "Commerces, santé, éducation à proximité", `<div class="charts-grid visual-grid">${equipBars}</div>`, "Insee, Base Permanente des Équipements (BPE) " + (e.equipements?.annee || "") + ".")}
-      ${section("04 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, Répertoire des entreprises et établissements (REE/Sirene) ; Insee, Base Permanente des Équipements (BPE).<br><br>
-        <strong>Limites :</strong> établissements actifs, pas nécessairement employeurs. Le dénombrement BPE recense des équipements ouverts au public, pas leur fréquentation ni leur qualité de service.<br><br>
+      ${section("04 · TOURISME", "Capacité d'accueil touristique", tourismeRows.length ? `<div class="charts-grid visual-grid">${barsValue("Établissements touristiques", tourismeRows)}</div>` : `<div class="charts-grid visual-grid">${comingSoon("Établissements touristiques", "aucun hébergement touristique recensé sur ce territoire.")}</div>`, "Insee, base tourisme " + (tourisme.annee || "") + ".")}
+      ${section("05 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, Répertoire des entreprises et établissements (REE/Sirene, créations et taille) ; Insee, Base Permanente des Équipements (BPE) ; Insee, base tourisme (hôtellerie, camping, autres hébergements).<br><br>
+        <strong>Limites :</strong> établissements actifs, pas nécessairement employeurs. ${ent.par_taille_note || ""} Le dénombrement BPE recense des équipements ouverts au public, pas leur fréquentation ni leur qualité de service.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
     `;
