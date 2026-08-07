@@ -1,0 +1,19 @@
+.theme-switcher{padding:2px 14px 12px;border-top:1px solid var(--line)}
+.theme-switcher>span{display:block;margin:12px 6px 8px;color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.12em}
+.theme-switcher-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.theme-card{--theme-color:var(--blue);display:flex;align-items:center;gap:9px;padding:11px 10px;border:1px solid #e0e6eb;border-radius:14px;background:#fff;text-align:left;color:var(--ink)}
+.theme-card.active{background:#f5f7f8;border-color:var(--theme-color);box-shadow:0 0 0 1px var(--theme-color) inset}
+.theme-card .theme-dot{width:10px;height:10px;border-radius:50%;background:#c4d0d8;flex:none}
+.theme-card.active .theme-dot{background:var(--theme-color)}
+.theme-card b{display:block;font-size:11.5px;color:var(--ink)}
+.theme-card small{display:block;margin-top:2px;font-size:9px;line-height:1.25;color:var(--muted)}
+.theme-card[data-theme="habitants"]{--theme-color:#000091}
+.theme-card[data-theme="emploi_mobilites"]{--theme-color:#18753c}
+.theme-card[data-theme="logement"]{--theme-color:#6f4c9b}
+.theme-card[data-theme="economie_equipements"]{--theme-color:#c76524}
+
+.layer-card.pending{opacity:.62;cursor:default}
+.layer-card.pending:hover{background:#fff}
+.pending-badge{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:99px;background:#f3eee5;color:#8a6a1f;font-size:8.5px;font-weight:800;letter-spacing:.05em;vertical-align:middle}
+
+.scope-note{margin:0 14px 10px;padding:9px 11px;border-radius:12px;background:#eef3f0;color:#295c3c;font-size:10.5px;line-height:1.35}

@@ -1,0 +1,63 @@
+{
+  "insee_rp_population": {
+    "producteur": "Insee",
+    "jeu": "Recensement de la population — populations légales par commune",
+    "page": "https://www.insee.fr/fr/statistiques/8582949",
+    "millesime": 2023,
+    "date_recuperation": "2026-08-07",
+    "licence": "Licence Ouverte / Open Licence 2.0",
+    "granularite": "commune",
+    "prudence": "Population totale ; les autres champs Habitants (âges, familles, revenus) ne sont pas encore ingérés."
+  },
+  "insee_mobpro_2022": {
+    "producteur": "Insee",
+    "jeu": "RP2022 — fichier détail Mobilités professionnelles (MOBPRO), pondéré par IPONDI",
+    "page": "https://www.insee.fr/fr/statistiques/8589904",
+    "millesime": 2022,
+    "date_recuperation": "2026-08-06",
+    "licence": "Licence Ouverte / Open Licence 2.0",
+    "granularite": "commune, agrégé en EPCI",
+    "prudence": "Porte uniquement sur les actifs occupés résidents de 15 ans ou plus qui se déplacent pour travailler — pas sur la population générale. Effectifs pondérés par sondage.",
+    "reutilise_depuis": "https://github.com/DDT95/val-doise-domicile-travail"
+  },
+  "insee_logement_2023": {
+    "producteur": "Insee",
+    "jeu": "Recensement de la population 2023 — Logement, tableaux détaillés (géographie au 01/01/2026)",
+    "page": "https://www.insee.fr/fr/statistiques/8998387",
+    "millesime": 2023,
+    "date_recuperation": "2026-08-04",
+    "licence": "Licence Ouverte / Open Licence 2.0",
+    "granularite": "commune",
+    "prudence": "Effectifs pondérés issus du sondage au quart ; comparaisons déconseillées pour les effectifs < 200.",
+    "reutilise_depuis": "https://github.com/DDT95/val-doise-logement-habitat"
+  },
+  "rpls_2025": {
+    "producteur": "SDES, ministère de la Transition écologique",
+    "jeu": "Données détaillées au logement du RPLS",
+    "page": "https://www.data.gouv.fr/datasets/donnees-detaillees-au-logement-du-repertoire-des-logements-locatifs-des-bailleurs-sociaux-rpls",
+    "millesime": "2025 (état au 1er janvier)",
+    "date_recuperation": "2026-08-04",
+    "licence": "Licence Ouverte",
+    "granularite": "logement individuel, agrégé en commune/EPCI",
+    "reutilise_depuis": "https://github.com/DDT95/val-doise-logement-habitat"
+  },
+  "insee_filosofi": {
+    "producteur": "Insee-DGFiP",
+    "jeu": "Filosofi — Fichier localisé social et fiscal (revenus, pauvreté, inégalités)",
+    "page": "https://www.insee.fr/fr/statistiques/6036902",
+    "statut": "non_ingere",
+    "prudence": "Masque un grand nombre de communes de moins de 50 ménages fiscaux (secret statistique important sur les petites communes rurales)."
+  },
+  "insee_sirene": {
+    "producteur": "Insee",
+    "jeu": "Sirene — répertoire des entreprises et établissements",
+    "page": "https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret",
+    "statut": "non_ingere"
+  },
+  "insee_bpe": {
+    "producteur": "Insee",
+    "jeu": "Base Permanente des Équipements (BPE)",
+    "page": "https://www.insee.fr/fr/metadonnees/source/serie/s1161",
+    "statut": "non_ingere"
+  }
+}

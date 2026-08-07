@@ -1,0 +1,370 @@
+{
+ "code": "95",
+ "name": "Val-d'Oise",
+ "kind": "departement",
+ "themes": {
+  "logement": {
+   "parc": {
+    "total": {
+     "value": 535442.8430299998,
+     "unit": "logements",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "residences_principales": {
+     "value": 495214.5152200002,
+     "unit": "logements",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "logements_vacants_rp": {
+     "value": 31797.775,
+     "unit": "logements",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 535442.8430299998,
+     "quality_flag": "ok"
+    },
+    "maisons": {
+     "value": 213023.32162999993,
+     "unit": "logements",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    },
+    "appartements": {
+     "value": 275455.79005999985,
+     "unit": "logements",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    },
+    "part_avant_1971": {
+     "value": 41.42898464136185,
+     "unit": "%",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": null,
+     "quality_flag": "ok"
+    }
+   },
+   "occupation": {
+    "proprietaires": {
+     "value": 275093.03340999986,
+     "unit": "résidences principales",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    },
+    "locataires_prive": {
+     "value": 86061.90308999999,
+     "unit": "résidences principales",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    },
+    "locataires_social": {
+     "value": 114559.84912,
+     "unit": "résidences principales",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    }
+   },
+   "vacance": {
+    "taux_vacance_rp": {
+     "value": 5.938593710593016,
+     "unit": "%",
+     "year": 2023,
+     "source": "insee_logement_2023",
+     "denominator": 535442.8430299998,
+     "quality_flag": "ok"
+    },
+    "vacance_privee_longue_2025": {
+     "value": 9840.0,
+     "unit": "logements",
+     "year": 2025,
+     "source": "lovac",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+   },
+   "social": {
+    "rpls_count": {
+     "value": 133824.0,
+     "unit": "logements",
+     "year": 2025,
+     "source": "rpls",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "part_rpls_residences_principales": {
+     "value": 27.023440526687388,
+     "unit": "%",
+     "year": 2025,
+     "source": "rpls+insee_logement_2023",
+     "denominator": 495214.5152200002,
+     "quality_flag": "ok"
+    }
+   },
+   "construction": {
+    "autorises_5ans": {
+     "value": 20985.0,
+     "unit": "logements",
+     "year": "2021-2025",
+     "source": "sitadel3",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "commences_5ans": {
+     "value": 12790.0,
+     "unit": "logements",
+     "year": "2021-2025",
+     "source": "sitadel3",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "serie_annuelle": []
+   },
+   "renovation": {
+    "dpe_observes": {
+     "value": 263079.0,
+     "unit": "diagnostics",
+     "year": 2026,
+     "source": "dpe_ademe",
+     "denominator": null,
+     "quality_flag": "ok"
+    },
+    "dpe_fg_part": {
+     "value": 8.976771236016559,
+     "unit": "%",
+     "year": 2026,
+     "source": "dpe_ademe",
+     "denominator": 263079.0,
+     "quality_flag": "ok"
+    },
+    "anah_programmes_actifs": [
+     {
+      "libelle": "OPAH RU QUARTIER VAL NOTRE DAME A ARGENTEUIL",
+      "type": "OPAH-RU",
+      "fin": "2027-12-27"
+     },
+     {
+      "libelle": "PLS SQUARE JEAN DE LA FONTAINE ARGENTEUIL",
+      "type": "PLS",
+      "fin": "2028-02-14"
+     },
+     {
+      "libelle": "OPAH CCHVO",
+      "type": "OPAH",
+      "fin": "2027-09-30"
+     },
+     {
+      "libelle": "OPAH RU PERSAN BEAUMONT SUR OISE",
+      "type": "OPAH-RU",
+      "fin": "2029-09-30"
+     },
+     {
+      "libelle": "ORCOD DC DE GARGES LES GONESSES",
+      "type": "OPAH-D",
+      "fin": "2034-03-20"
+     },
+     {
+      "libelle": "LES EDELWEIS",
+      "type": "PLS",
+      "fin": "2029-03-20"
+     },
+     {
+      "libelle": "PLS GARGES OUEST",
+      "type": "PLS",
+      "fin": "2029-03-20"
+     },
+     {
+      "libelle": "PLS LES MAGNOLIAS",
+      "type": "PLS",
+      "fin": "2029-03-20"
+     },
+     {
+      "libelle": "PLS LE PETIT ROSNE",
+      "type": "PLS",
+      "fin": "2029-03-20"
+     },
+     {
+      "libelle": "ORCOD SARCELLES LOCHERES TOUR 75",
+      "type": "OPAH-D",
+      "fin": "2029-06-30"
+     },
+     {
+      "libelle": "PLS COPROPRIETE LES CHARMES A VILLERS LE BEL",
+      "type": "PLS",
+      "fin": "2027-11-29"
+     },
+     {
+      "libelle": "OPAH CD COPROS GAMBETTA ET HENRI SELLIER",
+      "type": "OPAH-D",
+      "fin": "2029-05-30"
+     },
+     {
+      "libelle": "PLS COPROPRIETE MERMOZ",
+      "type": "PLS",
+      "fin": "2027-11-29"
+     }
+    ]
+   }
+  },
+  "emploi_mobilites": {
+   "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+   "actifs_occupes_residents": 550530.5,
+   "profession": [
+    {
+     "label": "Agriculteur",
+     "value": 551.0,
+     "pct": 0.1
+    },
+    {
+     "label": "Artisan, commerçant et chef d'entreprise",
+     "value": 29839.90000000002,
+     "pct": 5.4
+    },
+    {
+     "label": "Cadres",
+     "value": 125287.40000000005,
+     "pct": 22.8
+    },
+    {
+     "label": "Profession intermédiaire",
+     "value": 154659.79999999993,
+     "pct": 28.1
+    },
+    {
+     "label": "Employé",
+     "value": 151548.69999999992,
+     "pct": 27.5
+    },
+    {
+     "label": "Ouvrier",
+     "value": 88643.09999999998,
+     "pct": 16.1
+    }
+   ],
+   "employment": [
+    {
+     "label": "Emploi stable",
+     "value": 437859.7,
+     "pct": 79.5
+    },
+    {
+     "label": "Contrat court / insertion",
+     "value": 63799.100000000006,
+     "pct": 11.6
+    },
+    {
+     "label": "Indépendant / employeur",
+     "value": 48871.19999999997,
+     "pct": 8.9
+    }
+   ],
+   "worktime": [
+    {
+     "label": "Temps complet",
+     "value": 481653.7999999996,
+     "pct": 87.5
+    },
+    {
+     "label": "Temps partiel",
+     "value": 68876.0,
+     "pct": 12.5
+    }
+   ],
+   "transport": [
+    {
+     "label": "Pas de transport",
+     "value": 15180.9,
+     "pct": 2.8
+    },
+    {
+     "label": "Marche à pied (ou rollers, patinette)",
+     "value": 25185.19999999999,
+     "pct": 4.6
+    },
+    {
+     "label": "Vélo (y compris à assistance électrique)",
+     "value": 7346.200000000002,
+     "pct": 1.3
+    },
+    {
+     "label": "Deux-roues motorisé",
+     "value": 10313.099999999999,
+     "pct": 1.9
+    },
+    {
+     "label": "Voiture, camion, fourgonnette",
+     "value": 290843.29999999993,
+     "pct": 52.8
+    },
+    {
+     "label": "Transports en commun",
+     "value": 201661.99999999997,
+     "pct": 36.6
+    }
+   ],
+   "cars": [
+    {
+     "label": "Sans voiture",
+     "value": 64914.799999999996,
+     "pct": 11.8
+    },
+    {
+     "label": "Une voiture",
+     "value": 244288.7,
+     "pct": 44.6
+    },
+    {
+     "label": "Deux voitures ou plus",
+     "value": 238647.4000000001,
+     "pct": 43.6
+    }
+   ]
+  },
+  "habitants": {
+   "population_totale": {
+    "value": 1281653,
+    "year": 2023,
+    "source": "insee_rp_population",
+    "quality_flag": "ok"
+   },
+   "pyramide_ages": {
+    "quality_flag": "a_venir",
+    "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+   },
+   "revenus_pauvrete": {
+    "quality_flag": "a_venir",
+    "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+   },
+   "structure_familles": {
+    "quality_flag": "a_venir",
+    "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+   }
+  },
+  "economie_equipements": {
+   "entreprises": {
+    "quality_flag": "a_venir",
+    "note": "Nécessite Sirene (Insee), non encore ingéré."
+   },
+   "equipements": {
+    "quality_flag": "a_venir",
+    "note": "Nécessite la BPE (Insee), non encore ingéré."
+   }
+  }
+ }
+}

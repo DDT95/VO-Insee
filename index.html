@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Portrait statistique du Val-d'Oise : habitants, emploi & mobilités, logement, économie — données Insee, commune par commune — DDT 95">
+<title>Portrait Insee · Val-d'Oise · DDT 95</title>
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/theme-switch.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand-logo-link" href="https://ddt95.github.io/atlas-territorial-95/" aria-label="Retour à l'Atlas territorial"><img class="brand-logo" src="assets/prefet-val-doise.svg" alt="Préfet du Val-d'Oise"></a>
+  <div class="title-block">
+    <span class="eyebrow">PORTRAIT INSEE · VAL-D'OISE</span>
+    <h1>Qui vit, travaille et se loge dans le Val-d'Oise ?</h1>
+    <p>Habitants, emploi &amp; mobilités, logement, économie — à hauteur de territoire</p>
+  </div>
+  <button id="mobileLayers" class="mobile-layers" aria-controls="layerSidebar" aria-expanded="false">Données</button>
+  <a id="openDataTop" class="livebox" href="fiche.html?type=departement" target="_blank" rel="noopener">
+    <span class="fresh-dot"></span>
+    <div><strong>Données &amp; évolutions</strong><small>Synthèse Val-d'Oise ou territoire choisi</small></div>
+  </a>
+</header>
+
+<main class="workspace">
+  <aside id="layerSidebar" class="sidebar" aria-label="Choix du thème, du territoire et des couches">
+    <div class="sidebar-intro">
+      <div>
+        <span class="eyebrow">LECTURE STATISTIQUE</span>
+        <h2 id="themeHeading">Explorer les habitants</h2>
+        <p id="themeIntro">Choisissez un thème, puis une commune ou un EPCI, pour voir son profil détaillé.</p>
+      </div>
+    </div>
+
+    <section class="theme-switcher" aria-label="Thème principal">
+      <span>THÈME</span>
+      <div class="theme-switcher-grid">
+        <button type="button" class="theme-card active" data-theme="habitants"><i class="theme-dot" aria-hidden="true"></i><span><b>Habitants</b><small>Population, diplômes, revenus</small></span></button>
+        <button type="button" class="theme-card" data-theme="emploi_mobilites"><i class="theme-dot" aria-hidden="true"></i><span><b>Emploi &amp; Mobilités</b><small>Actifs, CSP, déplacements</small></span></button>
+        <button type="button" class="theme-card" data-theme="logement"><i class="theme-dot" aria-hidden="true"></i><span><b>Logement</b><small>Parc, vacance, social</small></span></button>
+        <button type="button" class="theme-card" data-theme="economie_equipements"><i class="theme-dot" aria-hidden="true"></i><span><b>Économie &amp; Équipements</b><small>Entreprises, services</small></span></button>
+      </div>
+    </section>
+
+    <label class="search-box" id="territorySearchField">
+      <span id="territorySearchLabel">Rechercher une commune</span>
+      <div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div>
+    </label>
+    <div id="searchResults" class="search-results" hidden></div>
+
+    <div class="quick-actions">
+      <button id="resetView">Recentrer</button>
+      <a id="openData" href="fiche.html?type=departement" target="_blank" rel="noopener">Données &amp; évolutions</a>
+    </div>
+
+    <section class="territory-mode" aria-label="Échelle d'analyse">
+      <span>ÉCHELLE D'ANALYSE</span>
+      <div class="territory-mode-grid">
+        <button type="button" class="territory-mode-card active" data-map-scale="commune" aria-pressed="true">
+          <i class="mode-switch" aria-hidden="true"></i><span><b>Communes</b><small>183 communes du Val-d'Oise</small></span><em class="mode-color commune" aria-hidden="true"></em>
+        </button>
+        <button type="button" class="territory-mode-card" data-map-scale="epci" aria-pressed="false">
+          <i class="mode-switch" aria-hidden="true"></i><span><b>EPCI</b><small>10 intercommunalités · Argenteuil et Bezons inclus</small></span><em class="mode-color epci" aria-hidden="true"></em>
+        </button>
+      </div>
+    </section>
+
+    <div id="layerGroups"></div>
+
+    <button id="openComprendre3" class="sources-inline">Sources, millésimes et licences</button>
+    <div class="sidebar-footer">
+      <div class="fresh-dot"></div>
+      <div><strong id="sourcesCount">Sources publiques croisées</strong><small>Insee · réutilisation val-doise-logement-habitat &amp; domicile-travail</small></div>
+    </div>
+  </aside>
+
+  <section class="map-shell" aria-label="Carte interactive">
+    <div id="map"></div>
+    <div class="choropleth-legend" id="mapLegend" hidden>
+      <strong id="legendTitle">Couche affichée</strong>
+      <div class="ramp"></div>
+      <div class="ramp-labels"><span id="legendMin">min</span><span id="legendMax">max</span></div>
+      <p id="legendNote"></p>
+    </div>
+    <div class="map-note"><span class="pulse" style="width:8px;height:8px;border-radius:50%;background:#28a745"></span><span id="mapStatus">Chargement des données…</span></div>
+  </section>
+
+  <aside id="detailPanel" class="detail-panel" aria-live="polite">
+    <button id="closeDetail" class="close-btn" aria-label="Fermer le panneau">×</button>
+    <div id="detailContent"></div>
+  </aside>
+</main>
+
+<dialog id="comprendreDialog" class="dialog">
+  <button class="dialog-close" data-close="comprendreDialog" aria-label="Fermer">×</button>
+  <div class="dialog-header">
+    <span class="eyebrow">TRAÇABILITÉ</span>
+    <h2>Comprendre la carte</h2>
+    <p>Ce que montre la carte, comment la lire, d'où viennent les données, leur état d'avancement et leurs limites.</p>
+  </div>
+  <div class="dialog-body">
+    <h3>Ce que montre cette carte</h3>
+    <p>Une couleur par commune ou EPCI selon l'indicateur choisi, dans le thème actif. Un seul thème et une seule couche actifs à la fois ; le panneau de droite affiche la synthèse du thème sélectionné pour le territoire choisi.</p>
+
+    <h3>Comment lire la carte</h3>
+    <ul>
+      <li><strong>Choisissez un thème</strong> en haut du panneau : Habitants, Emploi &amp; Mobilités, Logement, Économie &amp; Équipements.</li>
+      <li><strong>Choisissez une couche</strong> dans ce thème : la carte se colore selon l'indicateur.</li>
+      <li><strong>Sélectionnez un territoire</strong> par recherche ou clic : le panneau de droite détaille son profil pour ce thème.</li>
+      <li><strong>Données grises, hachurées ou « à venir »</strong> : donnée absente, secrétisée ou pas encore ingérée — jamais assimilée à zéro.</li>
+    </ul>
+
+    <h3>État d'avancement par thème</h3>
+    <ul>
+      <li><strong>Logement</strong> — complet, repris de l'observatoire « Comment se loge-t-on dans le Val-d'Oise ? ».</li>
+      <li><strong>Emploi &amp; Mobilités</strong> — complet, repris de l'observatoire « Domicile ↔ Travail » (actifs occupés résidents, RP2022 Mobilités professionnelles, poids IPONDI).</li>
+      <li><strong>Habitants</strong> — partiel : population totale disponible ; pyramide des âges, structure des familles et revenus/pauvreté à venir (nécessitent des jeux Insee non encore ingérés : RP structure par âge, Filosofi).</li>
+      <li><strong>Économie &amp; Équipements</strong> — à venir (Sirene, Base Permanente des Équipements).</li>
+    </ul>
+
+    <h3>Limites méthodologiques</h3>
+    <ul>
+      <li>Emploi &amp; Mobilités : les indicateurs (CSP, diplôme, transport, temps de travail…) portent sur les <strong>actifs occupés résidents</strong>, pas sur la population générale de la commune.</li>
+      <li>Logement : effectifs pondérés par sondage, décimales normales, comparaisons déconseillées sous 200 logements.</li>
+      <li>Deux EPCI (Roissy Pays de France, Cergy-Pontoise) débordent le Val-d'Oise : leurs indicateurs agrégés ne portent que sur la partie val-d'oisienne, signalé sur leur fiche.</li>
+    </ul>
+
+    <div class="source-cards">
+      <div class="source-card">
+        <h3>Insee — RP2022 &amp; Logement 2023</h3>
+        <p>Recensement de la population : mobilités professionnelles et logement.</p>
+        <a href="https://www.insee.fr/fr/statistiques/8582949" target="_blank" rel="noopener">Voir la source ↗</a>
+      </div>
+      <div class="source-card">
+        <h3>Code source</h3>
+        <p>Pipeline de fusion des données et code du site disponibles sur GitHub.</p>
+        <a href="https://github.com/DDT95/VO-Insee" target="_blank" rel="noopener">Voir le dépôt ↗</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="js/themes.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>

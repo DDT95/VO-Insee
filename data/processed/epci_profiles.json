@@ -1,0 +1,4594 @@
+{
+ "200035970": {
+  "code": "200035970",
+  "name": "CC Vexin Centre",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95002",
+   "95040",
+   "95054",
+   "95059",
+   "95078",
+   "95102",
+   "95110",
+   "95142",
+   "95166",
+   "95169",
+   "95170",
+   "95177",
+   "95181",
+   "95253",
+   "95254",
+   "95287",
+   "95295",
+   "95298",
+   "95303",
+   "95348",
+   "95370",
+   "95422",
+   "95438",
+   "95447",
+   "95459",
+   "95483",
+   "95535",
+   "95584",
+   "95592",
+   "95610",
+   "95611",
+   "95625",
+   "95658"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 10754.351190000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 9778.95283,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 693.7793999999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 10754.351190000001,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 8438.097269999998,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 1257.07777,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 46.64941803492024,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 7780.0693200000005,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 1457.1503700000003,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 334.26017999999993,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 6.451150680713448,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 10754.351190000001,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 214.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 351.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 3.5893413753177907,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 9778.95283,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 177.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 113.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 3404.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 18.53701527614571,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 3404.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95002",
+     "95040",
+     "95054",
+     "95059",
+     "95078",
+     "95102",
+     "95110",
+     "95142",
+     "95166",
+     "95169",
+     "95170",
+     "95177",
+     "95181",
+     "95253",
+     "95254",
+     "95287",
+     "95295",
+     "95298",
+     "95303",
+     "95348",
+     "95370",
+     "95422",
+     "95438",
+     "95447",
+     "95459",
+     "95483",
+     "95535",
+     "95584",
+     "95592",
+     "95610",
+     "95611",
+     "95625",
+     "95658"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 11821.9,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 100.0,
+      "pct": 0.8
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 905.9,
+      "pct": 7.7
+     },
+     {
+      "label": "Cadres",
+      "value": 2743.0,
+      "pct": 23.2
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 3821.6,
+      "pct": 32.3
+     },
+     {
+      "label": "Employé",
+      "value": 2783.0,
+      "pct": 23.5
+     },
+     {
+      "label": "Ouvrier",
+      "value": 1468.5,
+      "pct": 12.4
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 9301.5,
+      "pct": 78.7
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 1027.4,
+      "pct": 8.7
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 1493.0,
+      "pct": 12.6
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 10374.9,
+      "pct": 87.8
+     },
+     {
+      "label": "Temps partiel",
+      "value": 1447.0,
+      "pct": 12.2
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 568.0,
+      "pct": 4.8
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 269.9,
+      "pct": 2.3
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 61.1,
+      "pct": 0.5
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 174.0,
+      "pct": 1.5
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 9193.7,
+      "pct": 77.8
+     },
+     {
+      "label": "Transports en commun",
+      "value": 1555.1,
+      "pct": 13.2
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 155.3,
+      "pct": 1.3
+     },
+     {
+      "label": "Une voiture",
+      "value": 3196.6,
+      "pct": 27.0
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 8444.9,
+      "pct": 71.4
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 721.3,
+      "pct": 6.1
+     },
+     {
+      "label": "Brevet",
+      "value": 434.3,
+      "pct": 3.7
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 2349.0,
+      "pct": 19.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 2665.9,
+      "pct": 22.6
+     },
+     {
+      "label": "Bac+2",
+      "value": 2117.1,
+      "pct": 17.9
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 3534.2,
+      "pct": 29.9
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 25317,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "249500430": {
+  "code": "249500430",
+  "name": "CC Sausseron Impressionnistes",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95023",
+   "95039",
+   "95120",
+   "95211",
+   "95213",
+   "95258",
+   "95271",
+   "95304",
+   "95308",
+   "95328",
+   "95341",
+   "95387",
+   "95446",
+   "95627",
+   "95628"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 8656.0735,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 7782.24045,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 500.9297999999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 8656.0735,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 6725.764819999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 1024.4211699999998,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 50.75674704783589,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 6398.048580000001,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 878.3386599999999,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 371.3401,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 5.787032654008771,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 8656.0735,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 136.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 479.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 6.155039838174108,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 7782.24045,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 144.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 75.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 2806.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 18.745545260156806,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 2806.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95023",
+     "95039",
+     "95120",
+     "95211",
+     "95213",
+     "95258",
+     "95271",
+     "95304",
+     "95308",
+     "95328",
+     "95341",
+     "95387",
+     "95446",
+     "95627",
+     "95628"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 8898.3,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 39.4,
+      "pct": 0.4
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 663.5,
+      "pct": 7.5
+     },
+     {
+      "label": "Cadres",
+      "value": 2355.1,
+      "pct": 26.5
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 3127.7,
+      "pct": 35.1
+     },
+     {
+      "label": "Employé",
+      "value": 1761.4,
+      "pct": 19.8
+     },
+     {
+      "label": "Ouvrier",
+      "value": 951.4,
+      "pct": 10.7
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 7032.6,
+      "pct": 79.0
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 711.7,
+      "pct": 8.0
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 1154.0,
+      "pct": 13.0
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 7828.9,
+      "pct": 88.0
+     },
+     {
+      "label": "Temps partiel",
+      "value": 1069.5,
+      "pct": 12.0
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 336.0,
+      "pct": 3.8
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 159.1,
+      "pct": 1.8
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 85.4,
+      "pct": 1.0
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 215.0,
+      "pct": 2.4
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 6788.0,
+      "pct": 76.3
+     },
+     {
+      "label": "Transports en commun",
+      "value": 1314.8,
+      "pct": 14.8
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 148.0,
+      "pct": 1.7
+     },
+     {
+      "label": "Une voiture",
+      "value": 2862.6,
+      "pct": 32.2
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 5864.9,
+      "pct": 65.9
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 500.4,
+      "pct": 5.6
+     },
+     {
+      "label": "Brevet",
+      "value": 380.0,
+      "pct": 4.3
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 1777.9,
+      "pct": 20.0
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 1853.5,
+      "pct": 20.8
+     },
+     {
+      "label": "Bac+2",
+      "value": 1484.1,
+      "pct": 16.7
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 2902.5,
+      "pct": 32.6
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 19069,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "200058485": {
+  "code": "200058485",
+  "name": "CA Val Parisis",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95051",
+   "95060",
+   "95176",
+   "95203",
+   "95219",
+   "95252",
+   "95256",
+   "95257",
+   "95306",
+   "95424",
+   "95488",
+   "95491",
+   "95563",
+   "95582",
+   "95607"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 124054.20061999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 115612.9449,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 7110.208280000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 124054.20061999999,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 49873.98965,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 64754.473079999996,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 37.67026304587857,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 71988.46730999999,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 19229.38827,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 22177.33788,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 5.731533671947013,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 124054.20061999999,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 1684.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 25956.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 22.450773157323145,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 115612.9449,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 5213.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 3279.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 57055.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 9.373411620366314,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 57055.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95051",
+     "95060",
+     "95176",
+     "95203",
+     "95219",
+     "95252",
+     "95256",
+     "95257",
+     "95306",
+     "95424",
+     "95488",
+     "95491",
+     "95563",
+     "95582",
+     "95607"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 130576.3,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 49.3,
+      "pct": 0.0
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 6655.5,
+      "pct": 5.1
+     },
+     {
+      "label": "Cadres",
+      "value": 35670.2,
+      "pct": 27.3
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 38775.8,
+      "pct": 29.7
+     },
+     {
+      "label": "Employé",
+      "value": 33048.1,
+      "pct": 25.3
+     },
+     {
+      "label": "Ouvrier",
+      "value": 16377.4,
+      "pct": 12.5
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 106219.1,
+      "pct": 81.3
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 13130.9,
+      "pct": 10.1
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 11226.3,
+      "pct": 8.6
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 115430.0,
+      "pct": 88.4
+     },
+     {
+      "label": "Temps partiel",
+      "value": 15146.3,
+      "pct": 11.6
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 3660.0,
+      "pct": 2.8
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 5485.1,
+      "pct": 4.2
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 1995.1,
+      "pct": 1.5
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 3205.4,
+      "pct": 2.5
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 65753.3,
+      "pct": 50.4
+     },
+     {
+      "label": "Transports en commun",
+      "value": 50477.4,
+      "pct": 38.7
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 11904.4,
+      "pct": 9.1
+     },
+     {
+      "label": "Une voiture",
+      "value": 62659.4,
+      "pct": 48.0
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 55354.8,
+      "pct": 42.4
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 10095.7,
+      "pct": 7.7
+     },
+     {
+      "label": "Brevet",
+      "value": 4866.5,
+      "pct": 3.7
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 21259.9,
+      "pct": 16.3
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 26508.6,
+      "pct": 20.3
+     },
+     {
+      "label": "Bac+2",
+      "value": 21326.8,
+      "pct": 16.3
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 46518.7,
+      "pct": 35.6
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 290890,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "special-95063": {
+  "code": "special-95063",
+  "name": "Bezons",
+  "kind": "epci",
+  "special": true,
+  "members": [
+   "95063"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 14900.162869999998,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 13564.983909999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 1221.8700200000003,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 14900.162869999998,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 3664.18075,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 9721.850910000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 38.97204121342744,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 6105.019840000001,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 2836.61977,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 4883.4453300000005,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 8.200380295574584,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 14900.162869999998,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 454.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 5702.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 42.03469785022399,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 13564.983909999999,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 2310.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 1586.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 5742.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 14.071752002786486,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 5742.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95063"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 16064.1,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 0.0,
+      "pct": 0.0
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 712.3,
+      "pct": 4.4
+     },
+     {
+      "label": "Cadres",
+      "value": 4369.8,
+      "pct": 27.2
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 3608.6,
+      "pct": 22.5
+     },
+     {
+      "label": "Employé",
+      "value": 4729.4,
+      "pct": 29.4
+     },
+     {
+      "label": "Ouvrier",
+      "value": 2644.0,
+      "pct": 16.5
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 12886.9,
+      "pct": 80.2
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 2043.3,
+      "pct": 12.7
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 1133.8,
+      "pct": 7.1
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 14004.6,
+      "pct": 87.2
+     },
+     {
+      "label": "Temps partiel",
+      "value": 2059.5,
+      "pct": 12.8
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 321.0,
+      "pct": 2.0
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 1030.9,
+      "pct": 6.4
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 420.5,
+      "pct": 2.6
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 484.2,
+      "pct": 3.0
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 5876.4,
+      "pct": 36.6
+     },
+     {
+      "label": "Transports en commun",
+      "value": 7930.9,
+      "pct": 49.4
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 2916.1,
+      "pct": 18.2
+     },
+     {
+      "label": "Une voiture",
+      "value": 8334.8,
+      "pct": 51.9
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 4723.2,
+      "pct": 29.4
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 1825.9,
+      "pct": 11.4
+     },
+     {
+      "label": "Brevet",
+      "value": 662.4,
+      "pct": 4.1
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 2945.3,
+      "pct": 18.3
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 2815.3,
+      "pct": 17.5
+     },
+     {
+      "label": "Bac+2",
+      "value": 1865.8,
+      "pct": 11.6
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 5949.3,
+      "pct": 37.0
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 36434,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "249500109": {
+  "code": "249500109",
+  "name": "CA de Cergy-Pontoise",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "78382",
+   "95074",
+   "95127",
+   "95183",
+   "95218",
+   "95323",
+   "95388",
+   "95450",
+   "95476",
+   "95500",
+   "95510",
+   "95572",
+   "95637"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 92253.52179,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "residences_principales": {
+      "value": 84393.83518,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "logements_vacants_rp": {
+      "value": 5665.865609999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 92253.52179,
+      "quality_flag": "partial_perimeter"
+     },
+     "maisons": {
+      "value": 29853.056870000004,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     },
+     "appartements": {
+      "value": 53063.39788999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     },
+     "part_avant_1971": {
+      "value": 16.882384024866422,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 40071.69845999999,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     },
+     "locataires_prive": {
+      "value": 15524.611780000001,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     },
+     "locataires_social": {
+      "value": 21668.26773,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 6.1416252735558565,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 92253.52179,
+      "quality_flag": "partial_perimeter"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 1269.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 27694.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "part_rpls_residences_principales": {
+      "value": 32.81519312510524,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 84393.83518,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 4005.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "commences_5ans": {
+      "value": 3315.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 52125.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "dpe_fg_part": {
+      "value": 3.9136690647482015,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 52125.0,
+      "quality_flag": "partial_perimeter"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": true,
+    "members_covered": [
+     "95074",
+     "95127",
+     "95183",
+     "95218",
+     "95323",
+     "95388",
+     "95450",
+     "95476",
+     "95500",
+     "95510",
+     "95572",
+     "95637"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 94241.8,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 74.7,
+      "pct": 0.1
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 3763.1,
+      "pct": 4.0
+     },
+     {
+      "label": "Cadres",
+      "value": 23131.3,
+      "pct": 24.5
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 27134.5,
+      "pct": 28.8
+     },
+     {
+      "label": "Employé",
+      "value": 25781.2,
+      "pct": 27.4
+     },
+     {
+      "label": "Ouvrier",
+      "value": 14356.9,
+      "pct": 15.2
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 74489.8,
+      "pct": 79.0
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 12978.6,
+      "pct": 13.8
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 6773.4,
+      "pct": 7.2
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 82403.9,
+      "pct": 87.4
+     },
+     {
+      "label": "Temps partiel",
+      "value": 11837.9,
+      "pct": 12.6
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 2594.2,
+      "pct": 2.8
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 4785.3,
+      "pct": 5.1
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 1545.4,
+      "pct": 1.6
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 1118.7,
+      "pct": 1.2
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 48137.5,
+      "pct": 51.1
+     },
+     {
+      "label": "Transports en commun",
+      "value": 36060.7,
+      "pct": 38.3
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 12021.0,
+      "pct": 12.8
+     },
+     {
+      "label": "Une voiture",
+      "value": 43089.4,
+      "pct": 45.7
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 38572.0,
+      "pct": 40.9
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 9208.8,
+      "pct": 9.8
+     },
+     {
+      "label": "Brevet",
+      "value": 3366.3,
+      "pct": 3.6
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 14967.4,
+      "pct": 15.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 19664.0,
+      "pct": 20.9
+     },
+     {
+      "label": "Bac+2",
+      "value": 14464.9,
+      "pct": 15.3
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 32570.4,
+      "pct": 34.6
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 220279,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "249500489": {
+  "code": "249500489",
+  "name": "CC du Haut Val d’Oise",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95052",
+   "95058",
+   "95116",
+   "95134",
+   "95436",
+   "95452",
+   "95456",
+   "95487",
+   "95529"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 16614.17079,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 15524.168450000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 935.76037,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16614.17079,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 8339.669679999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 6999.266629999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 34.41561846577358,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 8785.937160000001,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 2637.27438,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 3705.8266700000004,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 5.632302579694379,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16614.17079,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 348.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 4077.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 26.26227622517198,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 15524.168450000001,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 1049.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 573.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 8404.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 6.996668253212755,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 8404.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": [
+      {
+       "libelle": "OPAH CCHVO",
+       "type": "OPAH",
+       "fin": "2027-09-30"
+      },
+      {
+       "libelle": "OPAH RU PERSAN BEAUMONT SUR OISE",
+       "type": "OPAH-RU",
+       "fin": "2029-09-30"
+      }
+     ]
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95052",
+     "95058",
+     "95116",
+     "95134",
+     "95436",
+     "95452",
+     "95456",
+     "95487",
+     "95529"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 17800.0,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 15.6,
+      "pct": 0.1
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 842.9,
+      "pct": 4.7
+     },
+     {
+      "label": "Cadres",
+      "value": 2511.5,
+      "pct": 14.1
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 5464.9,
+      "pct": 30.7
+     },
+     {
+      "label": "Employé",
+      "value": 5454.5,
+      "pct": 30.6
+     },
+     {
+      "label": "Ouvrier",
+      "value": 3510.7,
+      "pct": 19.7
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 14706.3,
+      "pct": 82.6
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 1862.3,
+      "pct": 10.5
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 1231.4,
+      "pct": 6.9
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 15860.1,
+      "pct": 89.1
+     },
+     {
+      "label": "Temps partiel",
+      "value": 1939.9,
+      "pct": 10.9
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 406.0,
+      "pct": 2.3
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 884.9,
+      "pct": 5.0
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 226.1,
+      "pct": 1.3
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 106.3,
+      "pct": 0.6
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 11657.1,
+      "pct": 65.5
+     },
+     {
+      "label": "Transports en commun",
+      "value": 4519.6,
+      "pct": 25.4
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 1305.4,
+      "pct": 7.3
+     },
+     {
+      "label": "Une voiture",
+      "value": 6993.0,
+      "pct": 39.3
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 9266.1,
+      "pct": 52.1
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 2375.3,
+      "pct": 13.3
+     },
+     {
+      "label": "Brevet",
+      "value": 836.3,
+      "pct": 4.7
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 4083.5,
+      "pct": 22.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 4228.3,
+      "pct": 23.8
+     },
+     {
+      "label": "Bac+2",
+      "value": 2355.3,
+      "pct": 13.2
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 3921.4,
+      "pct": 22.0
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 41284,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "249500455": {
+  "code": "249500455",
+  "name": "CC de la Vallée de l’Oise et des Trois Forêts",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95061",
+   "95151",
+   "95313",
+   "95392",
+   "95394",
+   "95445",
+   "95480",
+   "95504",
+   "95678"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 17987.071630000002,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 16480.22268,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 1114.89234,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 17987.071630000002,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 10899.946919999998,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 5344.537649999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 40.148417515069724,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 11589.137359999999,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 2342.26539,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 2107.54851,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 6.1982982162616755,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 17987.071630000002,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 287.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 2610.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 15.837164646855367,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 16480.22268,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 744.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 272.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 7225.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 15.418685121107266,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 7225.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95061",
+     "95151",
+     "95313",
+     "95392",
+     "95394",
+     "95445",
+     "95480",
+     "95504",
+     "95678"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 18362.1,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 42.5,
+      "pct": 0.2
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 1326.5,
+      "pct": 7.2
+     },
+     {
+      "label": "Cadres",
+      "value": 4931.9,
+      "pct": 26.9
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 5715.5,
+      "pct": 31.1
+     },
+     {
+      "label": "Employé",
+      "value": 4131.9,
+      "pct": 22.5
+     },
+     {
+      "label": "Ouvrier",
+      "value": 2213.8,
+      "pct": 12.1
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 14553.9,
+      "pct": 79.3
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 1503.4,
+      "pct": 8.2
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 2304.7,
+      "pct": 12.6
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 16205.6,
+      "pct": 88.3
+     },
+     {
+      "label": "Temps partiel",
+      "value": 2156.5,
+      "pct": 11.7
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 702.3,
+      "pct": 3.8
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 603.7,
+      "pct": 3.3
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 224.5,
+      "pct": 1.2
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 375.3,
+      "pct": 2.0
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 13062.1,
+      "pct": 71.1
+     },
+     {
+      "label": "Transports en commun",
+      "value": 3394.1,
+      "pct": 18.5
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 942.1,
+      "pct": 5.1
+     },
+     {
+      "label": "Une voiture",
+      "value": 6306.1,
+      "pct": 34.3
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 11087.9,
+      "pct": 60.4
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 1411.2,
+      "pct": 7.7
+     },
+     {
+      "label": "Brevet",
+      "value": 830.8,
+      "pct": 4.5
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 3346.9,
+      "pct": 18.2
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 3542.6,
+      "pct": 19.3
+     },
+     {
+      "label": "Bac+2",
+      "value": 3276.3,
+      "pct": 17.8
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 5954.2,
+      "pct": 32.4
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 39841,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "200073013": {
+  "code": "200073013",
+  "name": "CC Carnelle Pays-de-France",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95026",
+   "95042",
+   "95055",
+   "95056",
+   "95144",
+   "95149",
+   "95214",
+   "95316",
+   "95331",
+   "95352",
+   "95353",
+   "95365",
+   "95430",
+   "95493",
+   "95566",
+   "95594",
+   "95652",
+   "95660",
+   "95682"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 14180.979,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 13207.046040000003,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 724.8971699999998,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 14180.979,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 10239.224,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 2758.5698500000003,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 39.06482709048832,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 10259.05997,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 1913.8481699999995,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 893.6424,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 5.111756882229358,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 14180.979,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 376.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 997.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 7.549000715075874,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 13207.046040000003,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 808.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 96.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 4615.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 12.264355362946912,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 4615.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95026",
+     "95042",
+     "95055",
+     "95056",
+     "95144",
+     "95149",
+     "95214",
+     "95316",
+     "95331",
+     "95352",
+     "95353",
+     "95365",
+     "95430",
+     "95493",
+     "95566",
+     "95594",
+     "95652",
+     "95660",
+     "95682"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 16020.7,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 29.7,
+      "pct": 0.2
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 937.3,
+      "pct": 5.9
+     },
+     {
+      "label": "Cadres",
+      "value": 3788.4,
+      "pct": 23.6
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 5502.6,
+      "pct": 34.3
+     },
+     {
+      "label": "Employé",
+      "value": 3780.1,
+      "pct": 23.6
+     },
+     {
+      "label": "Ouvrier",
+      "value": 1982.5,
+      "pct": 12.4
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 13045.3,
+      "pct": 81.4
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 1446.6,
+      "pct": 9.0
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 1528.8,
+      "pct": 9.5
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 14079.1,
+      "pct": 87.9
+     },
+     {
+      "label": "Temps partiel",
+      "value": 1941.7,
+      "pct": 12.1
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 406.4,
+      "pct": 2.5
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 391.6,
+      "pct": 2.4
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 61.9,
+      "pct": 0.4
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 250.1,
+      "pct": 1.6
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 12080.9,
+      "pct": 75.4
+     },
+     {
+      "label": "Transports en commun",
+      "value": 2829.8,
+      "pct": 17.7
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 283.3,
+      "pct": 1.8
+     },
+     {
+      "label": "Une voiture",
+      "value": 4365.3,
+      "pct": 27.2
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 11372.1,
+      "pct": 71.0
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 1016.9,
+      "pct": 6.3
+     },
+     {
+      "label": "Brevet",
+      "value": 696.2,
+      "pct": 4.3
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 3351.3,
+      "pct": 20.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 3292.9,
+      "pct": 20.6
+     },
+     {
+      "label": "Bac+2",
+      "value": 3014.6,
+      "pct": 18.8
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 4648.7,
+      "pct": 29.0
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 33841,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "249500513": {
+  "code": "249500513",
+  "name": "CC du Vexin-Val de Seine",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95008",
+   "95011",
+   "95012",
+   "95024",
+   "95046",
+   "95101",
+   "95119",
+   "95139",
+   "95141",
+   "95150",
+   "95157",
+   "95270",
+   "95301",
+   "95309",
+   "95355",
+   "95379",
+   "95429",
+   "95462",
+   "95523",
+   "95541",
+   "95543",
+   "95554",
+   "95651",
+   "95656",
+   "95676",
+   "95690"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 7987.30765,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 6797.0922500000015,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 604.9555000000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7987.30765,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 5393.586690000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 1363.0675999999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 57.872549465350545,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 4810.1949,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 1066.61642,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 823.6165499999998,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 7.573960169169146,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 7987.30765,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 168.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 915.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 13.46163868821995,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 6797.0922500000015,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 153.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 161.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 3190.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 16.551724137931036,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 3190.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95008",
+     "95011",
+     "95012",
+     "95024",
+     "95046",
+     "95101",
+     "95119",
+     "95139",
+     "95141",
+     "95150",
+     "95157",
+     "95270",
+     "95301",
+     "95309",
+     "95355",
+     "95379",
+     "95429",
+     "95462",
+     "95523",
+     "95541",
+     "95543",
+     "95554",
+     "95651",
+     "95656",
+     "95676",
+     "95690"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 7381.7,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 59.5,
+      "pct": 0.8
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 528.9,
+      "pct": 7.2
+     },
+     {
+      "label": "Cadres",
+      "value": 1425.9,
+      "pct": 19.3
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 2226.9,
+      "pct": 30.2
+     },
+     {
+      "label": "Employé",
+      "value": 1986.3,
+      "pct": 26.9
+     },
+     {
+      "label": "Ouvrier",
+      "value": 1154.1,
+      "pct": 15.6
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 5818.5,
+      "pct": 78.8
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 599.7,
+      "pct": 8.1
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 963.6,
+      "pct": 13.1
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 6530.4,
+      "pct": 88.5
+     },
+     {
+      "label": "Temps partiel",
+      "value": 851.3,
+      "pct": 11.5
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 335.6,
+      "pct": 4.5
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 321.1,
+      "pct": 4.3
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 14.7,
+      "pct": 0.2
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 55.1,
+      "pct": 0.7
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 5879.0,
+      "pct": 79.6
+     },
+     {
+      "label": "Transports en commun",
+      "value": 776.1,
+      "pct": 10.5
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 244.4,
+      "pct": 3.3
+     },
+     {
+      "label": "Une voiture",
+      "value": 2190.4,
+      "pct": 29.7
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 4921.2,
+      "pct": 66.7
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 540.1,
+      "pct": 7.3
+     },
+     {
+      "label": "Brevet",
+      "value": 389.8,
+      "pct": 5.3
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 1764.5,
+      "pct": 23.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 1671.0,
+      "pct": 22.6
+     },
+     {
+      "label": "Bac+2",
+      "value": 1058.9,
+      "pct": 14.3
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 1957.4,
+      "pct": 26.5
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 16528,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "200056380": {
+  "code": "200056380",
+  "name": "CA Plaine Vallée",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "95014",
+   "95028",
+   "95091",
+   "95197",
+   "95199",
+   "95210",
+   "95229",
+   "95288",
+   "95369",
+   "95409",
+   "95426",
+   "95427",
+   "95428",
+   "95489",
+   "95539",
+   "95555",
+   "95574",
+   "95598"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 82226.64834999999,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 75466.34297000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 5570.49655,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 82226.64834999999,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 31249.07441,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 43127.10873,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 36.404520823669756,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 45892.283970000004,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 14232.959169999998,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 12340.4246,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 6.774563553033353,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 82226.64834999999,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 1726.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 15025.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 19.90953769413851,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 75466.34297000001,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 1967.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 1305.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 38041.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 12.252569595962251,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 38041.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": []
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95014",
+     "95028",
+     "95091",
+     "95197",
+     "95199",
+     "95210",
+     "95229",
+     "95288",
+     "95369",
+     "95409",
+     "95426",
+     "95427",
+     "95428",
+     "95489",
+     "95539",
+     "95555",
+     "95574",
+     "95598"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 82400.7,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 80.9,
+      "pct": 0.1
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 5228.6,
+      "pct": 6.3
+     },
+     {
+      "label": "Cadres",
+      "value": 24177.6,
+      "pct": 29.3
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 23229.4,
+      "pct": 28.2
+     },
+     {
+      "label": "Employé",
+      "value": 20612.1,
+      "pct": 25.0
+     },
+     {
+      "label": "Ouvrier",
+      "value": 9072.2,
+      "pct": 11.0
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 64336.4,
+      "pct": 78.1
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 8560.0,
+      "pct": 10.4
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 9504.3,
+      "pct": 11.5
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 71634.7,
+      "pct": 86.9
+     },
+     {
+      "label": "Temps partiel",
+      "value": 10766.1,
+      "pct": 13.1
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 2485.1,
+      "pct": 3.0
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 3783.2,
+      "pct": 4.6
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 1337.5,
+      "pct": 1.6
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 2221.7,
+      "pct": 2.7
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 40022.6,
+      "pct": 48.6
+     },
+     {
+      "label": "Transports en commun",
+      "value": 32550.6,
+      "pct": 39.5
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 8964.7,
+      "pct": 10.9
+     },
+     {
+      "label": "Une voiture",
+      "value": 37950.5,
+      "pct": 46.1
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 35015.2,
+      "pct": 42.5
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 6950.8,
+      "pct": 8.4
+     },
+     {
+      "label": "Brevet",
+      "value": 3237.4,
+      "pct": 3.9
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 12463.3,
+      "pct": 15.1
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 15135.8,
+      "pct": 18.4
+     },
+     {
+      "label": "Bac+2",
+      "value": 12425.6,
+      "pct": 15.1
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 32187.9,
+      "pct": 39.1
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 187112,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "special-95018": {
+  "code": "special-95018",
+  "name": "Argenteuil",
+  "kind": "epci",
+  "special": true,
+  "members": [
+   "95018"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 46444.183809999995,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "residences_principales": {
+      "value": 43213.48265,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "logements_vacants_rp": {
+      "value": 2830.6875999999997,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 46444.183809999995,
+      "quality_flag": "ok"
+     },
+     "maisons": {
+      "value": 12701.73376,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     },
+     "appartements": {
+      "value": 29798.23547,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     },
+     "part_avant_1971": {
+      "value": 44.410345922443256,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "ok"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 18833.83511,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     },
+     "locataires_prive": {
+      "value": 9117.179610000001,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     },
+     "locataires_social": {
+      "value": 12542.85779,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 6.094816116438069,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 46444.183809999995,
+      "quality_flag": "ok"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 1131.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 14584.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "part_rpls_residences_principales": {
+      "value": 33.748726336455086,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 43213.48265,
+      "quality_flag": "ok"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 1097.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "commences_5ans": {
+      "value": 659.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 22160.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "ok"
+     },
+     "dpe_fg_part": {
+      "value": 12.513537906137184,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 22160.0,
+      "quality_flag": "ok"
+     },
+     "anah_programmes_actifs": [
+      {
+       "libelle": "OPAH RU QUARTIER VAL NOTRE DAME A ARGENTEUIL",
+       "type": "OPAH-RU",
+       "fin": "2027-12-27"
+      },
+      {
+       "libelle": "PLS SQUARE JEAN DE LA FONTAINE ARGENTEUIL",
+       "type": "PLS",
+       "fin": "2028-02-14"
+      }
+     ]
+    },
+    "perimetre_partiel": false,
+    "members_covered": [
+     "95018"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 44560.4,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 20.9,
+      "pct": 0.0
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 2466.5,
+      "pct": 5.5
+     },
+     {
+      "label": "Cadres",
+      "value": 9684.9,
+      "pct": 21.7
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 11177.5,
+      "pct": 25.1
+     },
+     {
+      "label": "Employé",
+      "value": 12434.4,
+      "pct": 27.9
+     },
+     {
+      "label": "Ouvrier",
+      "value": 8776.2,
+      "pct": 19.7
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 34786.5,
+      "pct": 78.1
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 5897.0,
+      "pct": 13.2
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 3876.9,
+      "pct": 8.7
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 38438.4,
+      "pct": 86.3
+     },
+     {
+      "label": "Temps partiel",
+      "value": 6122.1,
+      "pct": 13.7
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 1096.1,
+      "pct": 2.5
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 2123.8,
+      "pct": 4.8
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 944.1,
+      "pct": 2.1
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 1269.6,
+      "pct": 2.8
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 17929.8,
+      "pct": 40.2
+     },
+     {
+      "label": "Transports en commun",
+      "value": 21197.0,
+      "pct": 47.6
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 9869.7,
+      "pct": 22.1
+     },
+     {
+      "label": "Une voiture",
+      "value": 21876.7,
+      "pct": 49.1
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 12406.8,
+      "pct": 27.8
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 6347.6,
+      "pct": 14.2
+     },
+     {
+      "label": "Brevet",
+      "value": 2186.3,
+      "pct": 4.9
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 7759.2,
+      "pct": 17.4
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 8558.8,
+      "pct": 19.2
+     },
+     {
+      "label": "Bac+2",
+      "value": 5852.3,
+      "pct": 13.1
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 13856.1,
+      "pct": 31.1
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 106130,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ },
+ "200055655": {
+  "code": "200055655",
+  "name": "CA Roissy Pays de France",
+  "kind": "epci",
+  "special": false,
+  "members": [
+   "77118",
+   "77123",
+   "77153",
+   "77214",
+   "77241",
+   "77259",
+   "77282",
+   "77291",
+   "77294",
+   "77322",
+   "77323",
+   "77349",
+   "77392",
+   "77420",
+   "77462",
+   "77511",
+   "77514",
+   "95019",
+   "95088",
+   "95094",
+   "95154",
+   "95205",
+   "95212",
+   "95241",
+   "95250",
+   "95268",
+   "95277",
+   "95280",
+   "95351",
+   "95371",
+   "95395",
+   "95492",
+   "95509",
+   "95527",
+   "95580",
+   "95585",
+   "95604",
+   "95612",
+   "95633",
+   "95641",
+   "95675",
+   "95680"
+  ],
+  "themes": {
+   "logement": {
+    "parc": {
+     "total": {
+      "value": 99384.17183000002,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "residences_principales": {
+      "value": 93393.20291000002,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "logements_vacants_rp": {
+      "value": 4823.432360000001,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 99384.17183000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "maisons": {
+      "value": 35644.996810000004,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "appartements": {
+      "value": 56243.78331,
+      "unit": "logements",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "part_avant_1971": {
+      "value": 34.256861916193145,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "occupation": {
+     "proprietaires": {
+      "value": 42579.28143,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "locataires_prive": {
+      "value": 14825.651099999995,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "locataires_social": {
+      "value": 32711.28138,
+      "unit": "résidences principales",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "vacance": {
+     "taux_vacance_rp": {
+      "value": 4.853320474663354,
+      "unit": "%",
+      "year": 2023,
+      "source": "insee_logement_2023",
+      "denominator": 99384.17183000002,
+      "quality_flag": "partial_perimeter"
+     },
+     "vacance_privee_longue_2025": {
+      "value": 2047.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "lovac",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "rupture_serie": "Rupture méthodologique en 2023 (bascule GMBI) puis rupture de production en 2025 : ne pas tracer de tendance continue sans annotation."
+    },
+    "social": {
+     "rpls_count": {
+      "value": 35434.0,
+      "unit": "logements",
+      "year": 2025,
+      "source": "rpls",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "part_rpls_residences_principales": {
+      "value": 37.94066259205886,
+      "unit": "%",
+      "year": 2025,
+      "source": "rpls+insee_logement_2023",
+      "denominator": 93393.20291000002,
+      "quality_flag": "partial_perimeter"
+     }
+    },
+    "construction": {
+     "autorises_5ans": {
+      "value": 3318.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "commences_5ans": {
+      "value": 1356.0,
+      "unit": "logements",
+      "year": "2021-2025",
+      "source": "sitadel3",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "serie_annuelle": []
+    },
+    "renovation": {
+     "dpe_observes": {
+      "value": 58312.0,
+      "unit": "diagnostics",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": null,
+      "quality_flag": "partial_perimeter"
+     },
+     "dpe_fg_part": {
+      "value": 6.916243654822335,
+      "unit": "%",
+      "year": 2026,
+      "source": "dpe_ademe",
+      "denominator": 58312.0,
+      "quality_flag": "partial_perimeter"
+     },
+     "anah_programmes_actifs": [
+      {
+       "libelle": "ORCOD DC DE GARGES LES GONESSES",
+       "type": "OPAH-D",
+       "fin": "2034-03-20"
+      },
+      {
+       "libelle": "LES EDELWEIS",
+       "type": "PLS",
+       "fin": "2029-03-20"
+      },
+      {
+       "libelle": "PLS GARGES OUEST",
+       "type": "PLS",
+       "fin": "2029-03-20"
+      },
+      {
+       "libelle": "PLS LES MAGNOLIAS",
+       "type": "PLS",
+       "fin": "2029-03-20"
+      },
+      {
+       "libelle": "PLS LE PETIT ROSNE",
+       "type": "PLS",
+       "fin": "2029-03-20"
+      },
+      {
+       "libelle": "ORCOD SARCELLES LOCHERES TOUR 75",
+       "type": "OPAH-D",
+       "fin": "2029-06-30"
+      },
+      {
+       "libelle": "PLS COPROPRIETE LES CHARMES A VILLERS LE BEL",
+       "type": "PLS",
+       "fin": "2027-11-29"
+      },
+      {
+       "libelle": "OPAH CD COPROS GAMBETTA ET HENRI SELLIER",
+       "type": "OPAH-D",
+       "fin": "2029-05-30"
+      },
+      {
+       "libelle": "PLS COPROPRIETE MERMOZ",
+       "type": "PLS",
+       "fin": "2027-11-29"
+      }
+     ]
+    },
+    "perimetre_partiel": true,
+    "members_covered": [
+     "95019",
+     "95088",
+     "95094",
+     "95154",
+     "95205",
+     "95212",
+     "95241",
+     "95250",
+     "95268",
+     "95277",
+     "95280",
+     "95351",
+     "95371",
+     "95395",
+     "95492",
+     "95509",
+     "95527",
+     "95580",
+     "95585",
+     "95604",
+     "95612",
+     "95633",
+     "95641",
+     "95675",
+     "95680"
+    ]
+   },
+   "emploi_mobilites": {
+    "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "actifs_occupes_residents": 149444.8,
+    "profession": [
+     {
+      "label": "Agriculteur",
+      "value": 104.4,
+      "pct": 0.1
+     },
+     {
+      "label": "Artisan, commerçant et chef d'entreprise",
+      "value": 8314.4,
+      "pct": 5.6
+     },
+     {
+      "label": "Cadres",
+      "value": 18455.1,
+      "pct": 12.3
+     },
+     {
+      "label": "Profession intermédiaire",
+      "value": 39149.2,
+      "pct": 26.2
+     },
+     {
+      "label": "Employé",
+      "value": 48982.5,
+      "pct": 32.8
+     },
+     {
+      "label": "Ouvrier",
+      "value": 34439.2,
+      "pct": 23.0
+     }
+    ],
+    "employment": [
+     {
+      "label": "Emploi stable",
+      "value": 118901.3,
+      "pct": 79.6
+     },
+     {
+      "label": "Contrat court / insertion",
+      "value": 19286.3,
+      "pct": 12.9
+     },
+     {
+      "label": "Indépendant / employeur",
+      "value": 11257.2,
+      "pct": 7.5
+     }
+    ],
+    "worktime": [
+     {
+      "label": "Temps complet",
+      "value": 130988.2,
+      "pct": 87.6
+     },
+     {
+      "label": "Temps partiel",
+      "value": 18456.6,
+      "pct": 12.4
+     }
+    ],
+    "transport": [
+     {
+      "label": "Pas de transport",
+      "value": 3532.8,
+      "pct": 2.4
+     },
+     {
+      "label": "Marche à pied (ou rollers, patinette)",
+      "value": 6960.5,
+      "pct": 4.7
+     },
+     {
+      "label": "Vélo (y compris à assistance électrique)",
+      "value": 797.1,
+      "pct": 0.5
+     },
+     {
+      "label": "Deux-roues motorisé",
+      "value": 1341.0,
+      "pct": 0.9
+     },
+     {
+      "label": "Voiture, camion, fourgonnette",
+      "value": 86962.1,
+      "pct": 58.2
+     },
+     {
+      "label": "Transports en commun",
+      "value": 49851.3,
+      "pct": 33.4
+     }
+    ],
+    "cars": [
+     {
+      "label": "Sans voiture",
+      "value": 18648.2,
+      "pct": 12.5
+     },
+     {
+      "label": "Une voiture",
+      "value": 60927.9,
+      "pct": 40.8
+     },
+     {
+      "label": "Deux voitures ou plus",
+      "value": 69439.2,
+      "pct": 46.5
+     }
+    ]
+   },
+   "habitants_partiel": {
+    "diploma_scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+    "diploma_actifs_occupes": [
+     {
+      "label": "Sans diplôme",
+      "value": 25160.3,
+      "pct": 16.8
+     },
+     {
+      "label": "Brevet",
+      "value": 9148.6,
+      "pct": 6.1
+     },
+     {
+      "label": "CAP-BEP",
+      "value": 29766.0,
+      "pct": 19.9
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 35512.5,
+      "pct": 23.8
+     },
+     {
+      "label": "Bac+2",
+      "value": 20012.6,
+      "pct": 13.4
+     },
+     {
+      "label": "Bac+3 ou plus",
+      "value": 29844.9,
+      "pct": 20.0
+     }
+    ]
+   },
+   "habitants": {
+    "population_totale": {
+     "value": 367808,
+     "year": 2023,
+     "source": "insee_rp_population",
+     "quality_flag": "ok"
+    },
+    "pyramide_ages": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    },
+    "revenus_pauvrete": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    },
+    "structure_familles": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    }
+   },
+   "economie_equipements": {
+    "entreprises": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite Sirene (Insee), non encore ingéré."
+    },
+    "equipements": {
+     "quality_flag": "a_venir",
+     "note": "Nécessite la BPE (Insee), non encore ingéré."
+    }
+   }
+  }
+ }
+}
