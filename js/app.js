@@ -170,6 +170,17 @@
         applyChoropleth();
       });
     });
+
+    // La carte n'est jamais vierge : une couche par défaut (la première du thème) est
+    // toujours active à l'ouverture et à chaque changement de thème.
+    const firstLayer = theme.groups[0]?.layers[0];
+    if (firstLayer) {
+      state.activeLayer = firstLayer.key;
+      const firstBtn = container.querySelector(`.layer-card[data-layer="${firstLayer.key}"]`);
+      firstBtn?.classList.add("active");
+    } else {
+      state.activeLayer = null;
+    }
   }
 
   // ---------- Choropleth ----------
