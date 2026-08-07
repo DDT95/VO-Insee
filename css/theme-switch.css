@@ -18,16 +18,16 @@
 
 .scope-note{margin:0 14px 10px;padding:9px 11px;border-radius:12px;background:#eef3f0;color:#295c3c;font-size:10.5px;line-height:1.35}
 
-.mini-rank-list{display:flex;flex-direction:column;gap:6px}
-.mini-rank-row{display:grid;grid-template-columns:18px 1fr auto;align-items:center;gap:8px;padding:7px 9px;border-radius:10px;background:#f6f9fa}
-.mini-rank-row span{font-size:10px;font-weight:800;color:#8a97a6}
-.mini-rank-row b{font-size:11.5px;color:#17202a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mini-rank-row em{font-size:10.5px;font-style:normal;color:#000091;font-weight:700;white-space:nowrap}
-
-.theme-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.theme-summary-tile{border-top:3px solid var(--tc,#000091);padding:9px 10px;background:#f6f9fa;border-radius:8px}
-.theme-summary-tile small{display:block;font-size:8.5px;text-transform:uppercase;letter-spacing:.04em;color:#647381}
-.theme-summary-tile strong{display:block;margin-top:4px;font-size:11px;color:#17202a;font-weight:700;line-height:1.3}
+.theme-summary-list{display:flex;flex-direction:column;gap:10px}
+.theme-summary-card{border-top:3px solid var(--tc,#000091);padding:10px 12px;background:#f6f9fa;border-radius:10px}
+.theme-summary-card strong{display:block;font-size:11px;color:#17202a;font-weight:800;margin-bottom:8px;letter-spacing:.02em}
+.mini-bar-row{display:grid;grid-template-columns:1fr 56px 40px;align-items:center;gap:8px;margin-top:6px}
+.mini-bar-row:first-of-type{margin-top:0}
+.mini-bar-row span{font-size:9.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mini-bar-track{height:6px;border-radius:99px;background:#e4e9ec;overflow:hidden}
+.mini-bar-track i{display:block;height:100%;width:var(--pct,0%);background:var(--bc,#000091);border-radius:99px}
+.mini-bar-row b{font-size:10.5px;color:#17202a;font-weight:800;text-align:right;white-space:nowrap}
+.data-missing-mini{margin:0;font-size:10px;color:var(--muted)}
 
 .map-loader{position:absolute;inset:0;z-index:800;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(244,247,248,.88);backdrop-filter:blur(2px);transition:opacity .25s ease;color:#000091;font-size:12px;font-weight:700}
 .map-loader.hidden{opacity:0;pointer-events:none}

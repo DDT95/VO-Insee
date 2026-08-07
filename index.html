@@ -7,8 +7,8 @@
 <title>Portrait Insee · Val-d'Oise · DDT 95</title>
 <link rel="preconnect" href="https://tile.openstreetmap.org">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="css/style.css?v=3">
-<link rel="stylesheet" href="css/theme-switch.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/theme-switch.css?v=4">
 </head>
 <body>
 <header class="topbar">
@@ -27,54 +27,58 @@
 
 <main class="workspace">
   <aside id="layerSidebar" class="sidebar" aria-label="Choix du thème, du territoire et des couches">
-    <div class="sidebar-intro">
-      <div>
-        <span class="eyebrow">LECTURE STATISTIQUE</span>
-        <h2 id="themeHeading">Explorer les habitants</h2>
-        <p id="themeIntro">Choisissez un thème, puis une commune ou un EPCI, pour voir son profil détaillé.</p>
-      </div>
+    <div class="sidebar-hide-bar">
+      <button type="button" id="hideAll">Tout masquer</button>
     </div>
-
-    <section class="theme-switcher" aria-label="Thème principal">
-      <span>THÈME</span>
-      <div class="theme-switcher-grid">
-        <button type="button" class="theme-card active" data-theme="habitants"><i class="theme-dot" aria-hidden="true"></i><span><b>Habitants</b><small>Population, diplômes, revenus</small></span></button>
-        <button type="button" class="theme-card" data-theme="emploi_mobilites"><i class="theme-dot" aria-hidden="true"></i><span><b>Emploi &amp; Mobilités</b><small>Actifs, CSP, déplacements</small></span></button>
-        <button type="button" class="theme-card" data-theme="logement"><i class="theme-dot" aria-hidden="true"></i><span><b>Logement</b><small>Parc, vacance, social</small></span></button>
-        <button type="button" class="theme-card" data-theme="economie_equipements"><i class="theme-dot" aria-hidden="true"></i><span><b>Économie &amp; Équipements</b><small>Entreprises, services</small></span></button>
+    <div class="sidebar-scroll">
+      <div class="sidebar-intro">
+        <div>
+          <span class="eyebrow">LECTURE STATISTIQUE</span>
+          <h2 id="themeHeading">Explorer les habitants</h2>
+          <p id="themeIntro">Choisissez un thème, puis une commune ou un EPCI, pour voir son profil détaillé.</p>
+        </div>
       </div>
-    </section>
 
-    <label class="search-box" id="territorySearchField">
-      <span id="territorySearchLabel">Rechercher une commune</span>
-      <div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div>
-    </label>
-    <div id="searchResults" class="search-results" hidden></div>
+      <section class="theme-switcher" aria-label="Thème principal">
+        <span>THÈME</span>
+        <div class="theme-switcher-grid">
+          <button type="button" class="theme-card active" data-theme="habitants"><i class="theme-dot" aria-hidden="true"></i><span><b>Habitants</b><small>Population, diplômes, revenus</small></span></button>
+          <button type="button" class="theme-card" data-theme="emploi_mobilites"><i class="theme-dot" aria-hidden="true"></i><span><b>Emploi &amp; Mobilités</b><small>Actifs, CSP, déplacements</small></span></button>
+          <button type="button" class="theme-card" data-theme="logement"><i class="theme-dot" aria-hidden="true"></i><span><b>Logement</b><small>Parc, vacance, social</small></span></button>
+          <button type="button" class="theme-card" data-theme="economie_equipements"><i class="theme-dot" aria-hidden="true"></i><span><b>Économie &amp; Équipements</b><small>Entreprises, services</small></span></button>
+        </div>
+      </section>
 
-    <div class="quick-actions">
-      <button id="resetView">Recentrer</button>
-      <button id="hideAll">Tout masquer</button>
-      <a id="openData" href="fiche.html?type=departement" target="_blank" rel="noopener">Données &amp; évolutions</a>
-    </div>
+      <label class="search-box" id="territorySearchField">
+        <span id="territorySearchLabel">Rechercher une commune</span>
+        <div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div>
+      </label>
+      <div id="searchResults" class="search-results" hidden></div>
 
-    <section class="territory-mode" aria-label="Échelle d'analyse">
-      <span>ÉCHELLE D'ANALYSE</span>
-      <div class="territory-mode-grid">
-        <button type="button" class="territory-mode-card active" data-map-scale="commune" aria-pressed="true">
-          <i class="mode-switch" aria-hidden="true"></i><span><b>Communes</b><small>183 communes du Val-d'Oise</small></span><em class="mode-color commune" aria-hidden="true"></em>
-        </button>
-        <button type="button" class="territory-mode-card" data-map-scale="epci" aria-pressed="false">
-          <i class="mode-switch" aria-hidden="true"></i><span><b>EPCI</b><small>10 intercommunalités · Argenteuil et Bezons inclus</small></span><em class="mode-color epci" aria-hidden="true"></em>
-        </button>
+      <div class="quick-actions">
+        <button id="resetView">Recentrer</button>
+        <a id="openData" href="fiche.html?type=departement" target="_blank" rel="noopener">Données &amp; évolutions</a>
       </div>
-    </section>
 
-    <div id="layerGroups"></div>
+      <section class="territory-mode" aria-label="Échelle d'analyse">
+        <span>ÉCHELLE D'ANALYSE</span>
+        <div class="territory-mode-grid">
+          <button type="button" class="territory-mode-card active" data-map-scale="commune" aria-pressed="true">
+            <i class="mode-switch" aria-hidden="true"></i><span><b>Communes</b><small>183 communes du Val-d'Oise</small></span><em class="mode-color commune" aria-hidden="true"></em>
+          </button>
+          <button type="button" class="territory-mode-card" data-map-scale="epci" aria-pressed="false">
+            <i class="mode-switch" aria-hidden="true"></i><span><b>EPCI</b><small>10 intercommunalités · Argenteuil et Bezons inclus</small></span><em class="mode-color epci" aria-hidden="true"></em>
+          </button>
+        </div>
+      </section>
 
-    <button id="openComprendre3" class="sources-inline">Sources, millésimes et licences</button>
-    <div class="sidebar-footer">
-      <div class="fresh-dot"></div>
-      <div><strong id="sourcesCount">Sources publiques croisées</strong><small>Insee · réutilisation val-doise-logement-habitat &amp; domicile-travail</small></div>
+      <div id="layerGroups"></div>
+
+      <button id="openComprendre3" class="sources-inline">Sources, millésimes et licences</button>
+      <div class="sidebar-footer">
+        <div class="fresh-dot"></div>
+        <div><strong id="sourcesCount">Sources publiques croisées</strong><small>Insee · réutilisation val-doise-logement-habitat &amp; domicile-travail</small></div>
+      </div>
     </div>
   </aside>
 
@@ -149,7 +153,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="js/themes.js?v=3"></script>
-<script src="js/app.js?v=3"></script>
+<script src="js/themes.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
 </body>
 </html>
