@@ -51,6 +51,12 @@
             } },
           ],
         },
+        {
+          title: "MOBILITÉ RÉSIDENTIELLE",
+          layers: [
+            { key: "part_stabilite", label: "Part n'ayant pas déménagé (1 an)", unit: "%", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.mobilite_residentielle?.repartition, "N'a pas déménagé") },
+          ],
+        },
       ],
       scopeNote: "Revenus/pauvreté (Filosofi 2023) et diplômes/familles/âges (RP2023) : les petites communes peuvent être secrétisées (secret statistique), affichées en gris plutôt qu'estimées.",
       ranking: { label: "Les plus peuplées", unit: "hab.", direction: "desc", get: (p) => p.themes.habitants.population_totale.value },
@@ -128,6 +134,13 @@
             { key: "vacance_rp", label: "Taux de vacance RP", unit: "%", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => p.themes.logement.vacance.taux_vacance_rp?.value },
           ],
         },
+        {
+          title: "CHAUFFAGE & CONFORT",
+          layers: [
+            { key: "part_chauffage_elec", label: "Part de logements chauffés à l'électricité", unit: "%", ramp: ["#eef7f8", "#00a7b5", "#004a52"], get: (p) => window.VOInsee.helpers.findPct(p.themes.logement.energie_chauffage?.repartition, "Électricité") },
+            { key: "part_stationnement", label: "Part avec stationnement", unit: "%", ramp: ["#eef2f9", "#3978b8", "#0b2f57"], get: (p) => p.themes.logement.part_avec_stationnement?.value },
+          ],
+        },
       ],
       ranking: { label: "Le plus de logements", unit: "logements", direction: "desc", get: (p) => p.themes.logement.parc.total?.value },
       summary: (p) => {
@@ -146,6 +159,7 @@
           title: "ENTREPRISES & ÉTABLISSEMENTS",
           layers: [
             { key: "etablissements_actifs", label: "Établissements actifs", unit: "étab.", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => p.themes.economie_equipements.entreprises?.etablissements_actifs?.value },
+            { key: "emplois_salaries", label: "Emplois salariés", unit: "emplois", ramp: ["#f3eef9", "#6f4c9b", "#2e1a4d"], get: (p) => p.themes.economie_equipements.entreprises?.emplois_salaries?.value },
             { key: "part_commerce", label: "Part commerce, transport, hébergement", unit: "%", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => window.VOInsee.helpers.findPct(p.themes.economie_equipements.entreprises?.secteurs, "Commerce, transports, hébergement-restauration") },
           ],
         },

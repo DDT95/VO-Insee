@@ -90,8 +90,9 @@
       ${section("02 · ÂGES ET DIPLÔMES", "Qui vit sur ce territoire ?", `<div class="charts-grid visual-grid">${donut("Pyramide des âges (3 tranches)", asDonut(h.pyramide_ages.tranches), "20-64 ans", (h.pyramide_ages.tranches.find((r) => r.label === "20 à 64 ans") || {}).pct + "%")}${bars("Diplôme le plus élevé (pop. non scolarisée 15+)", asDonut(h.diplomes.repartition), "orange")}</div>`, "Insee RP2023.")}
       ${section("03 · FAMILLES ET STATUT CONJUGAL", "Composition des familles", `<div class="charts-grid visual-grid">${donut("Type de famille", asDonut(h.structure_familles.repartition), "couples avec enfant(s)", (h.structure_familles.repartition.find((r) => r.label === "Couple avec enfant(s)") || {}).pct + "%", "green")}${donut("Statut conjugal (15 ans ou plus)", asDonut(h.statut_conjugal ? h.statut_conjugal.repartition : []), "en couple", (() => { const r = h.statut_conjugal ? h.statut_conjugal.repartition : []; const marie = (r.find((x) => x.label === "Marié") || {}).pct || 0; const pacse = (r.find((x) => x.label === "Pacsé") || {}).pct || 0; const conc = (r.find((x) => x.label === "En concubinage, union libre") || {}).pct || 0; return Math.round((marie + pacse + conc) * 10) / 10; })() + "%", "orange")}</div>`, "Insee RP2023.")}
       ${section("04 · SCOLARISATION", "Taux de scolarisation par âge", `<div class="charts-grid visual-grid">${bars("Part de la population scolarisée", (h.scolarisation ? h.scolarisation.par_tranche : []).map((r) => ({ label: r.label, pct: r.pct })))}</div>`, "Insee RP2023. Le recul après 25 ans reflète la fin des études, pas une anomalie.")}
-      ${section("05 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, Recensement de la population 2023 (âges, diplômes, familles, statut conjugal, scolarisation) ; Insee-DGFiP, Filosofi 2023 (niveau de vie, pauvreté).<br><br>
+      ${section("05 · MOBILITÉ RÉSIDENTIELLE ET ENFANTS", "D'où viennent les habitants, combien d'enfants ?", `<div class="charts-grid visual-grid">${donut("Lieu de résidence il y a un an", asDonut(h.mobilite_residentielle ? h.mobilite_residentielle.repartition : []), "n'a pas déménagé", (() => { const r = h.mobilite_residentielle ? h.mobilite_residentielle.repartition : []; return (r.find((x) => x.label === "N'a pas déménagé") || {}).pct || 0; })() + "%", "green")}${donut("Nombre d'enfants par famille", asDonut(h.nombre_enfants ? h.nombre_enfants.repartition : []), "sans enfant", (() => { const r = h.nombre_enfants ? h.nombre_enfants.repartition : []; return (r.find((x) => x.label === "0 enfant") || {}).pct || 0; })() + "%")}</div>`, "Insee RP2023. Enfants de moins de 25 ans par famille.")}
+      ${section("06 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, Recensement de la population 2023 (âges, diplômes, familles, statut conjugal, scolarisation, mobilité résidentielle) ; Insee-DGFiP, Filosofi 2023 (niveau de vie, pauvreté).<br><br>
         <strong>Limites :</strong> Filosofi masque les communes de moins de 50 ménages fiscaux (secret statistique) — affiché comme tel, jamais comme zéro. Diplôme calculé sur la population non scolarisée de 15 ans ou plus.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
@@ -169,8 +170,9 @@
         ${kpi("Taux de vacance RP", l.vacance.taux_vacance_rp, "%")}
         ${kpi("Part F/G parmi les DPE observés", l.renovation.dpe_fg_part, "%")}
       </div>`, "RPLS SDES 2025 ; recensement Insee 2023 ; ADEME DPE v2.")}
-      ${section("04 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> repris de l'observatoire « Comment se loge-t-on dans le Val-d'Oise ? » (Insee 2023, RPLS 2025, LOVAC, Sitadel3, ADEME DPE).<br><br>
+      ${section("04 · CHAUFFAGE, ANCIENNETÉ ET CONFORT", "Comment vit-on dans ces logements ?", `<div class="charts-grid visual-grid">${donut("Énergie de chauffage", asDonut(l.energie_chauffage ? l.energie_chauffage.repartition : []), "principale", (() => { const r = l.energie_chauffage ? l.energie_chauffage.repartition : []; return r.length ? r.slice().sort((a, b) => b.pct - a.pct)[0].pct.toLocaleString("fr-FR") : "n. d."; })() + "%", "orange")}${bars("Ancienneté d'emménagement", (l.anciennete_emmenagement ? l.anciennete_emmenagement.repartition : []).map((r) => ({ label: r.label, pct: r.pct })))}</div><div class="kpi-grid kpi-grid-six">${kpi("Nombre moyen de pièces", l.nb_pieces_moyen, "n")}${kpi("Part avec stationnement", l.part_avec_stationnement, "%")}</div>`, "Insee RP2023.")}
+      ${section("05 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> repris de l'observatoire « Comment se loge-t-on dans le Val-d'Oise ? » (Insee 2023, RPLS 2025, LOVAC, Sitadel3, ADEME DPE) ; complété par Insee RP2023 (chauffage, ancienneté, pièces, stationnement).<br><br>
         <strong>Limites :</strong> effectifs pondérés par sondage ; comparaisons déconseillées sous 200 logements.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
@@ -194,6 +196,7 @@
     return `
       ${section("01 · REPÈRES", "Entreprises et établissements", `<div class="kpi-grid kpi-grid-six">
         ${kpi("Établissements actifs", ent.etablissements_actifs, "n", ent.annee ? "Insee REE " + ent.annee : "")}
+        ${kpi("Emplois salariés", ent.emplois_salaries, "n", "Effectifs fin décembre")}
         ${kpi("Créations d'entreprises (2025)", creations.entreprises_2025, "n")}
         ${kpi("Créations d'établissements (2025)", creations.etablissements_2025, "n")}
       </div>`)}

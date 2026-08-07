@@ -24,8 +24,8 @@ a{color:var(--blue)}
 .workspace{height:calc(100% - 111px);display:grid;grid-template-columns:390px 1fr;gap:16px;padding:16px;position:relative;overflow:hidden}
 
 .sidebar{position:relative;z-index:600;background:#fff;border:1px solid var(--line);border-radius:23px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.sidebar-hide-bar{flex:0 0 auto;padding:10px 20px;border-bottom:1px solid var(--line);background:#fff}
-.sidebar-hide-bar button{border:0;background:none;padding:0;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.sidebar-hide-bar{padding:0 20px 10px}
+.sidebar-hide-bar button{display:inline-block;border:0;background:none;padding:0;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.03em;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .sidebar-hide-bar button:hover{color:var(--blue)}
 .sidebar-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-color:#c4d0d8 transparent;scrollbar-width:thin}
 .sidebar-intro{display:flex;gap:14px;padding:22px 20px 14px;background:#fff}

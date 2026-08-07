@@ -124,12 +124,35 @@ def build_habitants(df_geo):
         if pop and stud is not None:
             scolarisation.append({"label": label, "value": round(stud, 1), "pct": round(stud / pop * 1000) / 10})
 
+    mobilite_total = val_of(df_geo, "POP_AGE_Y_GE1")
+    meme_logement = val_of(df_geo, "POP_AGE_Y_GE1_PREV_RES_AREA_11")
+    meme_commune = val_of(df_geo, "POP_AGE_Y_GE1_PREV_RES_AREA_12")
+    meme_dept = val_of(df_geo, "POP_AGE_Y_GE1_PREV_RES_AREA_21")
+    ailleurs_codes = ["POP_AGE_Y_GE1_PREV_RES_AREA_22", "POP_AGE_Y_GE1_PREV_RES_AREA_23", "POP_AGE_Y_GE1_PREV_RES_AREA_24", "POP_AGE_Y_GE1_PREV_RES_AREA_25T32"]
+    ailleurs_vals = [val_of(df_geo, c) for c in ailleurs_codes]
+    ailleurs = sum(v for v in ailleurs_vals if v is not None) if any(v is not None for v in ailleurs_vals) else None
+    mobilite = series_from_codes(
+        df_geo,
+        [("POP_AGE_Y_GE1_PREV_RES_AREA_11", "N'a pas déménagé"), ("POP_AGE_Y_GE1_PREV_RES_AREA_12", "A déménagé dans la commune"), ("POP_AGE_Y_GE1_PREV_RES_AREA_21", "Vient d'une autre commune du département")],
+        mobilite_total,
+    )
+    if ailleurs is not None and mobilite_total:
+        mobilite.append({"label": "Vient d'ailleurs (autre département/pays)", "value": round(ailleurs, 1), "pct": round(ailleurs / mobilite_total * 1000) / 10})
+
+    fam_children_total = sum(v for v in [val_of(df_geo, c) for c in ["NBFAM_NCH_CH0_Y_LT25", "NBFAM_NCH_CH1_Y_LT25", "NBFAM_NCH_CH2_Y_LT25", "NBFAM_NCH_CH3_Y_LT25", "NBFAM_NCH_CH_GE4_Y_LT25"]] if v is not None) or None
+    nombre_enfants = series_from_codes(df_geo, [
+        ("NBFAM_NCH_CH0_Y_LT25", "0 enfant"), ("NBFAM_NCH_CH1_Y_LT25", "1 enfant"), ("NBFAM_NCH_CH2_Y_LT25", "2 enfants"),
+        ("NBFAM_NCH_CH3_Y_LT25", "3 enfants"), ("NBFAM_NCH_CH_GE4_Y_LT25", "4 enfants ou plus"),
+    ], fam_children_total)
+
     return {
         "pyramide_ages": {"quality_flag": "ok" if pyramide else ("secret" if any_secret else "missing"), "annee": 2023, "source": "insee_dossier_complet", "tranches": pyramide},
         "diplomes": {"quality_flag": "ok" if diploma else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Population non scolarisée de 15 ans ou plus.", "repartition": diploma},
         "structure_familles": {"quality_flag": "ok" if familles else "missing", "annee": 2023, "source": "insee_dossier_complet", "nombre_familles": {"value": fam_total, "quality_flag": "ok" if fam_total else "missing"}, "repartition": familles},
         "statut_conjugal": {"quality_flag": "ok" if statut_conjugal else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Population de 15 ans ou plus.", "repartition": statut_conjugal},
         "scolarisation": {"quality_flag": "ok" if scolarisation else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Taux de scolarisation par tranche d'âge.", "par_tranche": scolarisation},
+        "mobilite_residentielle": {"quality_flag": "ok" if mobilite else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Lieu de résidence un an auparavant, population de 1 an ou plus.", "repartition": mobilite},
+        "nombre_enfants": {"quality_flag": "ok" if nombre_enfants else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Enfants de moins de 25 ans par famille.", "repartition": nombre_enfants},
         "revenus_pauvrete": {
             "niveau_vie_median": pick(df_geo, "MED_SL"),
             "taux_pauvrete": pick(df_geo, "PR_MD60"),
@@ -170,6 +193,35 @@ def build_emploi_extra(df_geo):
             "par_sexe": salaires_sexe,
             "par_csp": salaires_csp,
         },
+    }
+
+
+# ---------- Logement (compléments RP, nouveaux indicateurs) ----------
+def build_logement_extra(df_geo):
+    rp_total = val_of(df_geo, "DWELLINGS_OCS_DW_MAIN")
+    energie = series_from_codes(df_geo, [
+        ("DWELLINGS_OCS_DW_MAIN_NRG_SRC_ELC", "Électricité"), ("DWELLINGS_OCS_DW_MAIN_NRG_SRC_TOWN_GAS", "Gaz de ville / réseau de chaleur"),
+        ("DWELLINGS_OCS_DW_MAIN_NRG_SRC_OIL", "Fioul (mazout)"), ("DWELLINGS_OCS_DW_MAIN_NRG_SRC_BOT_GAS", "Gaz en bouteille ou citerne"),
+        ("DWELLINGS_OCS_DW_MAIN_NRG_SRC_OTH", "Autre (bois, solaire, géothermie…)"),
+    ], rp_total)
+
+    anciennete = series_from_codes(df_geo, [
+        ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y_LT2", "Moins de 2 ans"), ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y2T4", "2 à 4 ans"),
+        ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y5T9", "5 à 9 ans"), ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y10T19", "10 à 19 ans"),
+        ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y20T29", "20 à 29 ans"), ("DWELLINGS_OCS_DW_MAIN_L_STAY_Y_GE30", "30 ans ou plus"),
+    ], rp_total)
+
+    pieces_total = val_of(df_geo, "DWELLINGS_ROOMS_OCS_DW_MAIN")
+    nb_pieces_moyen = round(pieces_total / rp_total, 1) if pieces_total and rp_total else None
+
+    stationnement_oui = val_of(df_geo, "DWELLINGS_OCS_DW_MAIN_CARPARK_1")
+    part_stationnement = round(stationnement_oui / rp_total * 1000) / 10 if stationnement_oui is not None and rp_total else None
+
+    return {
+        "energie_chauffage": {"quality_flag": "ok" if energie else "missing", "annee": 2023, "source": "insee_dossier_complet", "repartition": energie},
+        "anciennete_emmenagement": {"quality_flag": "ok" if anciennete else "missing", "annee": 2023, "source": "insee_dossier_complet", "repartition": anciennete},
+        "nb_pieces_moyen": {"value": nb_pieces_moyen, "unit": "pièces", "annee": 2023, "source": "insee_dossier_complet", "quality_flag": "ok" if nb_pieces_moyen else "missing"},
+        "part_avec_stationnement": {"value": part_stationnement, "unit": "%", "annee": 2023, "source": "insee_dossier_complet", "quality_flag": "ok" if part_stationnement is not None else "missing"},
     }
 
 
@@ -231,9 +283,12 @@ def build_economie(df_geo):
     taille_denom = sum(v for _, v in taille_values if v is not None) or None
     taille = [{"label": label, "value": round(v, 1), "pct": round(v / taille_denom * 1000) / 10} for label, v in taille_values if v is not None and taille_denom]
 
+    emplois_salaries = sum(v for v in [val_of(df_geo, f"EMPL3112_NUMBER_EMPL_{c}") for c in ["E1T4", "E5T9", "E10T19", "E20T49", "E50T99", "E100T199", "E200T499", "E_GE500"]] if v is not None) or None
+
     return {
         "entreprises": {
             "etablissements_actifs": etab_total,
+            "emplois_salaries": {"value": round(emplois_salaries, 1) if emplois_salaries else None, "unit": "emplois", "annee": 2024, "source": "insee_dossier_complet", "quality_flag": "ok" if emplois_salaries else "missing", "note": "Effectifs salariés présents fin décembre — champ résultats sectoriels REE, plus restreint que les établissements actifs."},
             "annee": 2024,
             "secteurs": secteurs_out,
             "par_taille": taille,
@@ -252,6 +307,7 @@ def enrich(profile, df_geo):
     h = build_habitants(df_geo)
     profile["themes"]["habitants"].update(h)
     profile["themes"]["emploi_mobilites"].update(build_emploi_extra(df_geo))
+    profile["themes"]["logement"].update(build_logement_extra(df_geo))
     profile["themes"]["economie_equipements"] = build_economie(df_geo)
 
 

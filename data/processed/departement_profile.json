@@ -220,6 +220,89 @@
       "fin": "2027-11-29"
      }
     ]
+   },
+   "energie_chauffage": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "repartition": [
+     {
+      "label": "Électricité",
+      "value": 171127.5,
+      "pct": 33.9
+     },
+     {
+      "label": "Gaz de ville / réseau de chaleur",
+      "value": 294358.2,
+      "pct": 58.3
+     },
+     {
+      "label": "Fioul (mazout)",
+      "value": 18929.3,
+      "pct": 3.8
+     },
+     {
+      "label": "Gaz en bouteille ou citerne",
+      "value": 2857.3,
+      "pct": 0.6
+     },
+     {
+      "label": "Autre (bois, solaire, géothermie…)",
+      "value": 17439.7,
+      "pct": 3.5
+     }
+    ]
+   },
+   "anciennete_emmenagement": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "repartition": [
+     {
+      "label": "Moins de 2 ans",
+      "value": 49740.1,
+      "pct": 9.9
+     },
+     {
+      "label": "2 à 4 ans",
+      "value": 103053.4,
+      "pct": 20.4
+     },
+     {
+      "label": "5 à 9 ans",
+      "value": 102163.2,
+      "pct": 20.2
+     },
+     {
+      "label": "10 à 19 ans",
+      "value": 104281.1,
+      "pct": 20.7
+     },
+     {
+      "label": "20 à 29 ans",
+      "value": 67353.0,
+      "pct": 13.3
+     },
+     {
+      "label": "30 ans ou plus",
+      "value": 78121.3,
+      "pct": 15.5
+     }
+    ]
+   },
+   "nb_pieces_moyen": {
+    "value": 3.8,
+    "unit": "pièces",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "quality_flag": "ok"
+   },
+   "part_avec_stationnement": {
+    "value": 67.0,
+    "unit": "%",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "quality_flag": "ok"
    }
   },
   "emploi_mobilites": {
@@ -584,6 +667,67 @@
       "pct": 9.6
      }
     ]
+   },
+   "mobilite_residentielle": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Lieu de résidence un an auparavant, population de 1 an ou plus.",
+    "repartition": [
+     {
+      "label": "N'a pas déménagé",
+      "value": 1164329.8,
+      "pct": 92.1
+     },
+     {
+      "label": "A déménagé dans la commune",
+      "value": 30587.1,
+      "pct": 2.4
+     },
+     {
+      "label": "Vient d'une autre commune du département",
+      "value": 32394.4,
+      "pct": 2.6
+     },
+     {
+      "label": "Vient d'ailleurs (autre département/pays)",
+      "value": 37001.7,
+      "pct": 2.9
+     }
+    ]
+   },
+   "nombre_enfants": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Enfants de moins de 25 ans par famille.",
+    "repartition": [
+     {
+      "label": "0 enfant",
+      "value": 131896.9,
+      "pct": 39.0
+     },
+     {
+      "label": "1 enfant",
+      "value": 79435.5,
+      "pct": 23.5
+     },
+     {
+      "label": "2 enfants",
+      "value": 76652.6,
+      "pct": 22.7
+     },
+     {
+      "label": "3 enfants",
+      "value": 34739.2,
+      "pct": 10.3
+     },
+     {
+      "label": "4 enfants ou plus",
+      "value": 15208.3,
+      "pct": 4.5
+     }
+    ]
    }
   },
   "economie_equipements": {
@@ -593,6 +737,14 @@
      "year": 2024,
      "source": "insee_dossier_complet",
      "quality_flag": "ok"
+    },
+    "emplois_salaries": {
+     "value": 428504.0,
+     "unit": "emplois",
+     "annee": 2024,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok",
+     "note": "Effectifs salariés présents fin décembre — champ résultats sectoriels REE, plus restreint que les établissements actifs."
     },
     "annee": 2024,
     "secteurs": [
