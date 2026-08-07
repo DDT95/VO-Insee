@@ -53,6 +53,12 @@
         },
       ],
       scopeNote: "Revenus/pauvreté (Filosofi 2023) et diplômes/familles/âges (RP2023) : les petites communes peuvent être secrétisées (secret statistique), affichées en gris plutôt qu'estimées.",
+      ranking: { label: "Les plus peuplées", unit: "hab.", direction: "desc", get: (p) => p.themes.habitants.population_totale.value },
+      summary: (p) => {
+        const pop = p.themes.habitants.population_totale.value;
+        const pauvrete = p.themes.habitants.revenus_pauvrete?.taux_pauvrete?.value;
+        return `${fmtNum(pop)} hab.` + (pauvrete != null ? ` · ${fmtNum(pauvrete)}% de pauvreté` : "");
+      },
     },
 
     emploi_mobilites: {
@@ -83,6 +89,12 @@
           ],
         },
       ],
+      ranking: { label: "La plus forte part de cadres", unit: "%", direction: "desc", get: (p) => window.VOInsee.helpers.findPct(p.themes.emploi_mobilites.profession, "Cadres") },
+      summary: (p) => {
+        const cadres = window.VOInsee.helpers.findPct(p.themes.emploi_mobilites.profession, "Cadres");
+        const tc = window.VOInsee.helpers.findPct(p.themes.emploi_mobilites.transport, "Transports en commun");
+        return (cadres != null ? `${fmtNum(cadres)}% de cadres` : "n. d.") + (tc != null ? ` · ${fmtNum(tc)}% en TC` : "");
+      },
     },
 
     logement: {
@@ -110,6 +122,12 @@
           ],
         },
       ],
+      ranking: { label: "Le plus de logements", unit: "logements", direction: "desc", get: (p) => p.themes.logement.parc.total?.value },
+      summary: (p) => {
+        const vac = p.themes.logement.vacance.taux_vacance_rp?.value;
+        const rpls = p.themes.logement.social.part_rpls_residences_principales?.value;
+        return (vac != null ? `${fmtNum(vac)}% de vacance` : "n. d.") + (rpls != null ? ` · ${fmtNum(rpls)}% de logements sociaux` : "");
+      },
     },
 
     economie_equipements: {
@@ -132,6 +150,12 @@
           ],
         },
       ],
+      ranking: { label: "Le plus d'établissements actifs", unit: "étab.", direction: "desc", get: (p) => p.themes.economie_equipements.entreprises?.etablissements_actifs?.value },
+      summary: (p) => {
+        const etabs = p.themes.economie_equipements.entreprises?.etablissements_actifs?.value;
+        const pharm = p.themes.economie_equipements.equipements?.denombrement?.["Pharmacie"]?.value;
+        return (etabs != null ? `${fmtNum(etabs)} établissements` : "n. d.") + (pharm != null ? ` · ${fmtNum(pharm)} pharmacies` : "");
+      },
     },
   };
 
@@ -139,4 +163,9 @@
     if (num == null || !den) return null;
     return (num / den) * 100;
   }
+  function fmtNum(v) {
+    if (v == null) return "n. d.";
+    return v.toLocaleString("fr-FR", { maximumFractionDigits: 1 });
+  }
+  window.VOInsee.helpers.fmtNum = fmtNum;
 })();

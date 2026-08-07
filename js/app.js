@@ -18,6 +18,7 @@
     epcis: [],
     epcisByCode: new Map(),
     epciColors: new Map(),
+    department: null,
     scale: "commune",
     selected: null,
     activeTheme: "habitants",
@@ -52,9 +53,11 @@
     d3.json("data/processed/communes95.json"),
     d3.json("data/processed/commune_profiles.json"),
     d3.json("data/processed/epci_profiles.json"),
-  ]).then(([dept95, communes95Geo, epcis95Geo, communes95, communeProfiles, epciProfiles]) => {
+    d3.json("data/processed/departement_profile.json"),
+  ]).then(([dept95, communes95Geo, epcis95Geo, communes95, communeProfiles, epciProfiles, departementProfile]) => {
     deptLayer = L.geoJSON(dept95, { style: { color: "#000091", weight: 2, fill: false, opacity: 0.55 } }).addTo(map);
 
+    state.department = departementProfile;
     state.communes = communes95.map((c) => ({ ...c, profile: communeProfiles[c.code] }));
     state.communesByCode = new Map(state.communes.map((c) => [c.code, c]));
     state.epcis = Object.values(epciProfiles);
@@ -87,7 +90,7 @@
 
     renderSidebarForTheme();
     applyChoropleth();
-    renderEmptyState();
+    renderDefaultDetail();
 
     const initialParams = new URLSearchParams(location.search);
     if (initialParams.get("type") === "epci" && state.epcisByCode.has(initialParams.get("id"))) {
@@ -124,7 +127,7 @@
       document.querySelectorAll(".theme-card[data-theme]").forEach((b) => b.classList.toggle("active", b === btn));
       renderSidebarForTheme();
       applyChoropleth();
-      if (state.selected) renderDetail(state.selected); else renderEmptyState();
+      if (state.selected) renderDetail(state.selected); else renderDefaultDetail();
     });
   });
 
@@ -292,7 +295,7 @@
     });
     document.getElementById("detailPanel").classList.remove("open");
     applyChoropleth();
-    renderEmptyState();
+    renderDefaultDetail();
   }
   document.querySelectorAll("[data-map-scale]").forEach((b) => b.addEventListener("click", () => setMapScale(b.dataset.mapScale)));
 
@@ -315,7 +318,7 @@
     if (deptLayer) map.fitBounds(deptLayer.getBounds(), { padding: [24, 24], animate: false });
     else map.setView(VDO_CENTER, 10, { animate: false });
     applyChoropleth();
-    renderEmptyState();
+    renderDefaultDetail();
   });
 
   // ---------- Comprendre dialog ----------
@@ -444,14 +447,58 @@
       <p class="subtitle">${theme.intro}</p>
       ${partialNote}
       ${body}
+      ${renderCrossThemeSummary(p)}
       <a class="profile-link" href="${profileUrl}" target="_blank" rel="noopener">Voir la fiche ${isEpci ? "EPCI" : "communale"} complète et le PDF <span>↗</span></a>
     `;
     detailPanel.classList.add("open");
   }
 
-  function renderEmptyState() {
-    document.getElementById("detailPanel").classList.remove("open");
-    document.getElementById("mapStatus").textContent = `Val-d'Oise · sélectionnez ${state.scale === "epci" ? "un EPCI" : "une commune"} pour voir son profil`;
+  // ---------- Synthèse croisée (autres thèmes) ----------
+  function renderCrossThemeSummary(p) {
+    const otherKeys = Object.keys(THEMES).filter((k) => k !== state.activeTheme);
+    const tiles = otherKeys.map((key) => {
+      const t = THEMES[key];
+      let line = "n. d.";
+      try { line = t.summary(p) || "n. d."; } catch (e) { line = "n. d."; }
+      return `<div class="theme-summary-tile" style="--tc:${t.color}"><small>${t.label}</small><strong>${line}</strong></div>`;
+    }).join("");
+    return `<div class="section-block"><strong>Les autres thèmes en bref</strong><div class="theme-summary-grid">${tiles}</div></div>`;
+  }
+
+  // ---------- Classement (vue par défaut) ----------
+  function renderRanking() {
+    const theme = THEMES[state.activeTheme];
+    if (!theme.ranking) return "";
+    const isEpci = state.scale === "epci";
+    const collection = isEpci ? state.epcis.filter((e) => !e.special) : state.communes;
+    const rows = collection
+      .map((item) => ({ name: item.name, code: item.code, value: theme.ranking.get(isEpci ? item : item.profile) }))
+      .filter((r) => r.value != null)
+      .sort((a, b) => (theme.ranking.direction === "asc" ? a.value - b.value : b.value - a.value))
+      .slice(0, 5);
+    if (!rows.length) return "";
+    const list = rows.map((r, i) => `<div class="mini-rank-row"><span>${i + 1}</span><b>${r.name}</b><em>${fmt(r.value, theme.ranking.unit)}</em></div>`).join("");
+    return `<div class="section-block"><strong>Classement — ${theme.ranking.label}</strong><div class="mini-rank-list">${list}</div></div>`;
+  }
+
+  // ---------- Vue par défaut (aucune sélection) ----------
+  function renderDefaultDetail() {
+    const detailPanel = document.getElementById("detailPanel");
+    const detailContent = document.getElementById("detailContent");
+    document.getElementById("mapStatus").textContent = `Val-d'Oise · vue départementale · cliquez ${state.scale === "epci" ? "un EPCI" : "une commune"} pour son profil`;
+    if (!state.department) { detailPanel.classList.remove("open"); return; }
+    const theme = THEMES[state.activeTheme];
+    const body = DETAIL_RENDERERS[state.activeTheme](state.department, "Val-d'Oise", "Département");
+    detailContent.innerHTML = `
+      <span class="detail-tag">DÉPARTEMENT · ${theme.label.toUpperCase()} · VAL-D'OISE</span>
+      <h2>Val-d'Oise</h2>
+      <p class="subtitle">Vue départementale par défaut — ${theme.intro}</p>
+      ${body}
+      ${renderRanking()}
+      ${renderCrossThemeSummary(state.department)}
+      <a class="profile-link" href="fiche.html?type=departement&theme=${encodeURIComponent(state.activeTheme)}" target="_blank" rel="noopener">Voir la synthèse départementale complète et le PDF <span>↗</span></a>
+    `;
+    detailPanel.classList.add("open");
   }
 
   document.getElementById("closeDetail").addEventListener("click", () => document.getElementById("detailPanel").classList.remove("open"));
