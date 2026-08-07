@@ -369,14 +369,18 @@
   const DETAIL_RENDERERS = {
     habitants: (p, name, territoryType) => {
       const h = p.themes.habitants;
+      const rp = h.revenus_pauvrete || {};
+      const median = rp.niveau_vie_median;
+      const pauvrete = rp.taux_pauvrete;
+      const secretRevenus = median?.quality_flag === "secret";
       return `
         <div class="kpi-grid">
           <div class="kpi-tile"><small>Population totale</small><strong>${fmt(h.population_totale.value, "hab.")}</strong><em>${h.population_totale.year || ""}</em></div>
+          <div class="kpi-tile"><small>Niveau de vie médian</small><strong>${secretRevenus ? "Secret statistique" : fmt(median?.value, "€")}</strong></div>
+          <div class="kpi-tile"><small>Taux de pauvreté</small><strong>${secretRevenus ? "Secret statistique" : fmt(pauvrete?.value, "%")}</strong></div>
+          <div class="kpi-tile"><small>Part de 65 ans ou plus</small><strong>${fmt(window.VOInsee.helpers.findPct(h.pyramide_ages?.tranches, "65 ans ou plus"), "%")}</strong></div>
         </div>
-        <div class="section-block">
-          <strong>À venir sur ce territoire</strong>
-          <p class="detail-method">Pyramide des âges, structure des familles, revenus et pauvreté — nécessitent des jeux Insee non encore ingérés (RP structure par âge, Filosofi).</p>
-        </div>`;
+        <p class="detail-method">Sources : Insee RP2023 (âges, diplômes, familles), Filosofi 2023 (revenus, pauvreté). Petites communes parfois secrétisées.</p>`;
     },
     emploi_mobilites: (p) => {
       const e = p.themes.emploi_mobilites;
@@ -405,11 +409,19 @@
         </div>
         <p class="detail-method">Sources : Insee 2023, RPLS 2025. Détail complet dans « Sources, millésimes et licences ».</p>`;
     },
-    economie_equipements: () => `
-      <div class="section-block">
-        <strong>Thème en construction</strong>
-        <p class="detail-method">Entreprises &amp; établissements (Sirene) et équipements de proximité (BPE) — pas encore ingérés. Aucune valeur affichée tant que la source n'est pas connectée.</p>
-      </div>`,
+    economie_equipements: (p) => {
+      const e = p.themes.economie_equipements || {};
+      const ent = e.entreprises || {};
+      const equip = e.equipements?.denombrement || {};
+      return `
+        <div class="kpi-grid">
+          <div class="kpi-tile"><small>Établissements actifs</small><strong>${fmt(ent.etablissements_actifs?.value, "étab.")}</strong><em>${ent.annee || ""}</em></div>
+          <div class="kpi-tile"><small>Pharmacies</small><strong>${fmt(equip["Pharmacie"]?.value, "équip.")}</strong></div>
+          <div class="kpi-tile"><small>Médecins généralistes</small><strong>${fmt(equip["Médecin généraliste"]?.value, "équip.")}</strong></div>
+          <div class="kpi-tile"><small>Écoles (maternelle + primaire)</small><strong>${fmt((equip["École maternelle"]?.value || 0) + (equip["École primaire"]?.value || 0), "équip.")}</strong></div>
+        </div>
+        <p class="detail-method">Sources : Insee REE ${ent.annee || ""} (entreprises), Insee BPE ${e.equipements?.annee || ""} (équipements).</p>`;
+    },
   };
 
   function renderDetail(code) {

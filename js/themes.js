@@ -22,20 +22,37 @@
     habitants: {
       label: "Habitants",
       color: "#000091",
-      intro: "Population et, à terme, âges, familles, diplômes et revenus.",
+      intro: "Population, âges, diplômes, familles et revenus.",
       groups: [
         {
-          title: "POPULATION",
+          title: "POPULATION & ÂGES",
           layers: [
             { key: "population_totale", label: "Population totale", unit: "hab.", ramp: ["#eef2f9", "#3978b8", "#0b2f57"], get: (p) => p.themes.habitants.population_totale.value },
+            { key: "part_65_plus", label: "Part de 65 ans ou plus", unit: "%", ramp: ["#f3eef9", "#6f4c9b", "#2e1a4d"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.pyramide_ages?.tranches, "65 ans ou plus") },
+          ],
+        },
+        {
+          title: "REVENUS & PAUVRETÉ",
+          layers: [
+            { key: "niveau_vie_median", label: "Niveau de vie médian", unit: "€", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.habitants.revenus_pauvrete?.niveau_vie_median?.value },
+            { key: "taux_pauvrete", label: "Taux de pauvreté", unit: "%", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => p.themes.habitants.revenus_pauvrete?.taux_pauvrete?.value },
+          ],
+        },
+        {
+          title: "DIPLÔMES & FAMILLES",
+          layers: [
+            { key: "part_bac5", label: "Part de diplômés bac+5 ou plus", unit: "%", ramp: ["#eef2f9", "#3978b8", "#0b2f57"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.diplomes?.repartition, "Bac+5 ou plus") },
+            { key: "part_monoparentales", label: "Part de familles monoparentales", unit: "%", ramp: ["#fdeef2", "#e85d8e", "#7a1338"], get: (p) => {
+              const r = p.themes.habitants.structure_familles?.repartition;
+              if (!r) return null;
+              const pere = window.VOInsee.helpers.findPct(r, "Père seul avec enfant(s)") || 0;
+              const mere = window.VOInsee.helpers.findPct(r, "Mère seule avec enfant(s)") || 0;
+              return pere + mere;
+            } },
           ],
         },
       ],
-      pending: [
-        { label: "Pyramide des âges", note: "Nécessite le jeu Insee population par âge (RP)." },
-        { label: "Structure des familles", note: "Nécessite le jeu Insee structure des familles (RP)." },
-        { label: "Revenus, pauvreté, inégalités", note: "Nécessite Filosofi (Insee-DGFiP)." },
-      ],
+      scopeNote: "Revenus/pauvreté (Filosofi 2023) et diplômes/familles/âges (RP2023) : les petites communes peuvent être secrétisées (secret statistique), affichées en gris plutôt qu'estimées.",
     },
 
     emploi_mobilites: {
@@ -98,11 +115,22 @@
     economie_equipements: {
       label: "Économie & Équipements",
       color: "#c76524",
-      intro: "Entreprises, établissements et équipements de proximité — en construction.",
-      groups: [],
-      pending: [
-        { label: "Entreprises & établissements", note: "Nécessite Sirene (Insee)." },
-        { label: "Équipements & services", note: "Nécessite la Base Permanente des Équipements (Insee)." },
+      intro: "Entreprises et établissements actifs, commerces et équipements de proximité.",
+      groups: [
+        {
+          title: "ENTREPRISES & ÉTABLISSEMENTS",
+          layers: [
+            { key: "etablissements_actifs", label: "Établissements actifs", unit: "étab.", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => p.themes.economie_equipements.entreprises?.etablissements_actifs?.value },
+            { key: "part_commerce", label: "Part commerce, transport, hébergement", unit: "%", ramp: ["#fdf0e9", "#e07a2f", "#7a3200"], get: (p) => window.VOInsee.helpers.findPct(p.themes.economie_equipements.entreprises?.secteurs, "Commerce, transports, hébergement-restauration") },
+          ],
+        },
+        {
+          title: "ÉQUIPEMENTS DE PROXIMITÉ",
+          layers: [
+            { key: "nb_pharmacies", label: "Nombre de pharmacies", unit: "équip.", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.economie_equipements.equipements?.denombrement?.["Pharmacie"]?.value },
+            { key: "nb_medecins", label: "Nombre de médecins généralistes", unit: "équip.", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => p.themes.economie_equipements.equipements?.denombrement?.["Médecin généraliste"]?.value },
+          ],
+        },
       ],
     },
   };

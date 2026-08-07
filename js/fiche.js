@@ -77,15 +77,15 @@
     return `
       ${section("01 · REPÈRES", "Population", `<div class="kpi-grid kpi-grid-six">
         ${kpi("Population totale", h.population_totale, "n", h.population_totale.year ? "Insee RP " + h.population_totale.year : "")}
+        ${kpi("Niveau de vie médian", h.revenus_pauvrete.niveau_vie_median, "n", "Insee-DGFiP Filosofi")}
+        ${kpi("Taux de pauvreté (seuil 60%)", h.revenus_pauvrete.taux_pauvrete, "%")}
+        ${kpi("Nombre de familles", h.structure_familles.nombre_familles, "n")}
       </div>`)}
-      ${section("02 · À VENIR", "Ce qui reste à construire sur ce territoire", `<div class="charts-grid visual-grid">
-        ${comingSoon("Pyramide des âges", h.pyramide_ages.note)}
-        ${comingSoon("Structure des familles", h.structure_familles.note)}
-        ${comingSoon("Revenus, pauvreté, inégalités", h.revenus_pauvrete.note)}
-      </div>`, "Ces indicateurs nécessitent des jeux Insee non encore ingérés (RP structure par âge, Filosofi). Aucune valeur n'est estimée ou inventée en attendant.")}
-      ${section("03 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, Recensement de la population, population légale par commune.<br><br>
-        <strong>Limites :</strong> seule la population totale est disponible pour l'instant dans ce thème ; les autres indicateurs (âges, familles, revenus) seront ajoutés au fur et à mesure de l'ingestion des jeux Insee correspondants.<br><br>
+      ${section("02 · ÂGES ET DIPLÔMES", "Qui vit sur ce territoire ?", `<div class="charts-grid visual-grid">${donut("Pyramide des âges (3 tranches)", asDonut(h.pyramide_ages.tranches), "20-64 ans", (h.pyramide_ages.tranches.find((r) => r.label === "20 à 64 ans") || {}).pct + "%")}${bars("Diplôme le plus élevé (pop. non scolarisée 15+)", asDonut(h.diplomes.repartition), "orange")}</div>`, "Insee RP2023.")}
+      ${section("03 · FAMILLES", "Composition des familles", `<div class="charts-grid visual-grid">${donut("Type de famille", asDonut(h.structure_familles.repartition), "couples avec enfant(s)", (h.structure_familles.repartition.find((r) => r.label === "Couple avec enfant(s)") || {}).pct + "%", "green")}</div>`, "Insee RP2023.")}
+      ${section("04 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, Recensement de la population 2023 (âges, diplômes, familles) ; Insee-DGFiP, Filosofi 2023 (niveau de vie, pauvreté).<br><br>
+        <strong>Limites :</strong> Filosofi masque les communes de moins de 50 ménages fiscaux (secret statistique) — affiché comme tel, jamais comme zéro. Diplôme calculé sur la population non scolarisée de 15 ans ou plus.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}
     `;
@@ -161,12 +161,26 @@
     `;
   }
 
-  function renderEconomie() {
+  function renderEconomie(t) {
+    const e = t.economie_equipements || {};
+    const ent = e.entreprises || {};
+    const equip = e.equipements?.denombrement || {};
+    const equipRows = Object.entries(equip).map(([label, node]) => ({ label, pct: null, value: node.value })).filter((r) => r.value != null);
+    const maxEquip = Math.max(1, ...equipRows.map((r) => r.value));
+    const equipBars = equipRows.length
+      ? `<article class="chart-card"><h3>Équipements de proximité</h3>${equipRows.map((r) => `<div class="bar-row"><span title="${r.label}">${r.label}</span><div class="bar-track"><i style="--pct:${Math.max(4, (r.value / maxEquip) * 100)}%"></i></div><b>${fmt(r.value)}</b></div>`).join("")}</article>`
+      : comingSoon("Équipements de proximité", "aucun équipement dénombré sur ce territoire.");
     return `
-      ${section("EN CONSTRUCTION", "Ce thème n'est pas encore alimenté", `<div class="charts-grid visual-grid">
-        ${comingSoon("Entreprises & établissements", "nécessite Sirene (Insee).")}
-        ${comingSoon("Équipements & services", "nécessite la Base Permanente des Équipements (Insee).")}
-      </div>`, "Aucune donnée n'est affichée tant que la source n'est pas connectée — plutôt qu'une estimation.")}
+      ${section("01 · REPÈRES", "Entreprises et établissements", `<div class="kpi-grid kpi-grid-six">
+        ${kpi("Établissements actifs", ent.etablissements_actifs, "n", ent.annee ? "Insee REE " + ent.annee : "")}
+      </div>`)}
+      ${section("02 · SECTEURS D'ACTIVITÉ", "Où sont les établissements ?", `<div class="charts-grid visual-grid">${donut("Répartition par secteur", asDonut(ent.secteurs), "1ᵉʳ secteur", (ent.secteurs && ent.secteurs.length ? ent.secteurs.slice().sort((a, b) => b.pct - a.pct)[0].pct.toLocaleString("fr-FR") : "n. d.") + "%")}</div>`, "Insee, Répertoire des entreprises et établissements (REE).")}
+      ${section("03 · ÉQUIPEMENTS", "Commerces, santé, éducation à proximité", `<div class="charts-grid visual-grid">${equipBars}</div>`, "Insee, Base Permanente des Équipements (BPE) " + (e.equipements?.annee || "") + ".")}
+      ${section("04 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
+        <strong>Source :</strong> Insee, Répertoire des entreprises et établissements (REE/Sirene) ; Insee, Base Permanente des Équipements (BPE).<br><br>
+        <strong>Limites :</strong> établissements actifs, pas nécessairement employeurs. Le dénombrement BPE recense des équipements ouverts au public, pas leur fréquentation ni leur qualité de service.<br><br>
+        <strong>Licence :</strong> Licence Ouverte / Etalab.
+      </div>`)}
     `;
   }
 

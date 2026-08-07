@@ -344,26 +344,249 @@
     "quality_flag": "ok"
    },
    "pyramide_ages": {
-    "quality_flag": "a_venir",
-    "note": "Nécessite le jeu Insee population par âge (RP), non encore ingéré."
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "tranches": [
+     {
+      "label": "Moins de 20 ans",
+      "value": 358617.6,
+      "pct": 28.0
+     },
+     {
+      "label": "20 à 64 ans",
+      "value": 739322.8,
+      "pct": 57.7
+     },
+     {
+      "label": "65 ans ou plus",
+      "value": 183712.6,
+      "pct": 14.3
+     }
+    ]
    },
    "revenus_pauvrete": {
-    "quality_flag": "a_venir",
-    "note": "Nécessite Filosofi (Insee-DGFiP), non encore ingéré."
+    "niveau_vie_median": {
+     "value": 25890.0,
+     "year": 2023,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok"
+    },
+    "taux_pauvrete": {
+     "value": 19.4,
+     "year": 2023,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok"
+    }
    },
    "structure_familles": {
-    "quality_flag": "a_venir",
-    "note": "Nécessite le jeu Insee structure des familles (RP), non encore ingéré."
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "nombre_familles": {
+     "value": 337932.52307,
+     "quality_flag": "ok"
+    },
+    "repartition": [
+     {
+      "label": "Couple sans enfant",
+      "value": 101899.8,
+      "pct": 30.2
+     },
+     {
+      "label": "Couple avec enfant(s)",
+      "value": 164418.4,
+      "pct": 48.7
+     },
+     {
+      "label": "Père seul avec enfant(s)",
+      "value": 12295.2,
+      "pct": 3.6
+     },
+     {
+      "label": "Mère seule avec enfant(s)",
+      "value": 59319.1,
+      "pct": 17.6
+     }
+    ]
+   },
+   "diplomes": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Population non scolarisée de 15 ans ou plus.",
+    "repartition": [
+     {
+      "label": "Aucun diplôme",
+      "value": 181184.3,
+      "pct": 20.7
+     },
+     {
+      "label": "Brevet des collèges",
+      "value": 43071.2,
+      "pct": 4.9
+     },
+     {
+      "label": "CAP, BEP",
+      "value": 169197.6,
+      "pct": 19.3
+     },
+     {
+      "label": "Baccalauréat",
+      "value": 162474.5,
+      "pct": 18.5
+     },
+     {
+      "label": "Bac+2",
+      "value": 104765.3,
+      "pct": 11.9
+     },
+     {
+      "label": "Licence (bac+3/+4)",
+      "value": 95557.2,
+      "pct": 10.9
+     },
+     {
+      "label": "Bac+5 ou plus",
+      "value": 120719.8,
+      "pct": 13.8
+     }
+    ]
    }
   },
   "economie_equipements": {
    "entreprises": {
-    "quality_flag": "a_venir",
-    "note": "Nécessite Sirene (Insee), non encore ingéré."
+    "etablissements_actifs": {
+     "value": 101746.0,
+     "year": 2024,
+     "source": "insee_dossier_complet",
+     "quality_flag": "ok"
+    },
+    "annee": 2024,
+    "secteurs": [
+     {
+      "label": "Commerce, transports, hébergement-restauration",
+      "value": 29427.0,
+      "pct": 28.9
+     },
+     {
+      "label": "Administration, enseignement, santé, action sociale",
+      "value": 13131.0,
+      "pct": 12.9
+     },
+     {
+      "label": "Activités spécialisées, scientifiques, services aux entreprises",
+      "value": 20507.0,
+      "pct": 20.2
+     },
+     {
+      "label": "Autres activités de services",
+      "value": 8273.0,
+      "pct": 8.1
+     },
+     {
+      "label": "Construction",
+      "value": 12196.0,
+      "pct": 12.0
+     },
+     {
+      "label": "Industrie",
+      "value": 4097.0,
+      "pct": 4.0
+     },
+     {
+      "label": "Activités financières et d'assurance",
+      "value": 3787.0,
+      "pct": 3.7
+     },
+     {
+      "label": "Activités immobilières",
+      "value": 3865.0,
+      "pct": 3.8
+     },
+     {
+      "label": "Information et communication",
+      "value": 6463.0,
+      "pct": 6.4
+     }
+    ]
    },
    "equipements": {
-    "quality_flag": "a_venir",
-    "note": "Nécessite la BPE (Insee), non encore ingéré."
+    "annee": 2025,
+    "denombrement": {
+     "Supérette": {
+      "value": 79.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Épicerie": {
+      "value": 556.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Hypermarché / grand magasin": {
+      "value": 31.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Supermarché": {
+      "value": 180.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Médecin généraliste": {
+      "value": 803.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Pharmacie": {
+      "value": 317.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Chirurgien-dentiste": {
+      "value": 603.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "École maternelle": {
+      "value": 303.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "École primaire": {
+      "value": 207.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Collège": {
+      "value": 153.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Lycée général et/ou technologique": {
+      "value": 56.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "Bibliothèque": {
+      "value": 125.0,
+      "year": 2025,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    }
    }
   }
  }

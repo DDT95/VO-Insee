@@ -7,7 +7,17 @@
     "date_recuperation": "2026-08-07",
     "licence": "Licence Ouverte / Open Licence 2.0",
     "granularite": "commune",
-    "prudence": "Population totale ; les autres champs Habitants (âges, familles, revenus) ne sont pas encore ingérés."
+    "prudence": "Population totale."
+  },
+  "insee_dossier_complet": {
+    "producteur": "Insee",
+    "jeu": "Base du dossier complet (comparateur de territoire) — RP2023 (âges, diplômes, familles), Filosofi 2023 (revenus, pauvreté), REE 2024 (entreprises, établissements), BPE 2025 (équipements)",
+    "page": "https://www.insee.fr/fr/statistiques/5359146",
+    "millesime": "2023-2025 selon l'indicateur",
+    "date_recuperation": "2026-08-07",
+    "licence": "Licence Ouverte / Open Licence 2.0",
+    "granularite": "commune, EPCI, département",
+    "prudence": "Filosofi (revenus, pauvreté) masque les communes de moins de 50 ménages fiscaux — secret statistique respecté, jamais affiché comme zéro. Diplômes calculés sur la population non scolarisée de 15 ans ou plus. Effectifs RP pondérés par sondage."
   },
   "insee_mobpro_2022": {
     "producteur": "Insee",
@@ -40,24 +50,5 @@
     "licence": "Licence Ouverte",
     "granularite": "logement individuel, agrégé en commune/EPCI",
     "reutilise_depuis": "https://github.com/DDT95/val-doise-logement-habitat"
-  },
-  "insee_filosofi": {
-    "producteur": "Insee-DGFiP",
-    "jeu": "Filosofi — Fichier localisé social et fiscal (revenus, pauvreté, inégalités)",
-    "page": "https://www.insee.fr/fr/statistiques/6036902",
-    "statut": "non_ingere",
-    "prudence": "Masque un grand nombre de communes de moins de 50 ménages fiscaux (secret statistique important sur les petites communes rurales)."
-  },
-  "insee_sirene": {
-    "producteur": "Insee",
-    "jeu": "Sirene — répertoire des entreprises et établissements",
-    "page": "https://www.data.gouv.fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret",
-    "statut": "non_ingere"
-  },
-  "insee_bpe": {
-    "producteur": "Insee",
-    "jeu": "Base Permanente des Équipements (BPE)",
-    "page": "https://www.insee.fr/fr/metadonnees/source/serie/s1161",
-    "statut": "non_ingere"
   }
 }
