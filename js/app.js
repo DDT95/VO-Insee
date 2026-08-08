@@ -42,7 +42,10 @@
   }).addTo(map);
 
   let communesLayer, epciLayer, deptLayer;
-  window.addEventListener("load", () => setTimeout(() => map.invalidateSize(), 0));
+  window.addEventListener("load", () => setTimeout(() => {
+    map.invalidateSize();
+    if (deptLayer && !state.selected) map.fitBounds(deptLayer.getBounds(), { padding: [24, 24], animate: false });
+  }, 0));
   window.addEventListener("resize", () => map.invalidateSize());
   const territoryTooltip = L.tooltip({ sticky: true, className: "commune-tip", direction: "top", offset: [0, -8] });
 
