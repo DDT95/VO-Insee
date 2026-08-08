@@ -235,8 +235,15 @@
       values = state.epcis.filter((e) => !e.special).map((e) => layerDef.get(e)).filter((v) => v != null);
     }
     const extent = d3.extent(values);
-    const colorScale = d3.scaleLinear().range(layerDef.ramp);
-    colorScale.domain(extent[0] === extent[1] ? [0, extent[1] || 1] : extent);
+    // Échelle par quantiles plutôt que min-max linéaire : sur des couches très asymétriques
+    // (ex. population dominée par Argenteuil/Cergy), une échelle linéaire écrase presque
+    // toutes les communes dans la même teinte pâle. Les quantiles répartissent les couleurs
+    // selon le rang des communes, pas leur valeur brute — les contrastes redeviennent lisibles.
+    const rampInterp = d3.scaleLinear().domain([0, 0.5, 1]).range(layerDef.ramp);
+    const quantileSteps = d3.range(7).map((i) => rampInterp(i / 6));
+    const colorScale = extent[0] === extent[1]
+      ? d3.scaleLinear().domain([0, extent[1] || 1]).range(layerDef.ramp)
+      : d3.scaleQuantile().domain(values).range(quantileSteps);
 
     displayLayer.eachLayer((layer) => {
       const code = layer.feature.properties.code;
@@ -292,6 +299,7 @@
     const q = searchInput.value.trim().toLowerCase();
     const match = collection.find((item) => (item.name || "").toLowerCase() === q) || collection.find((item) => (item.name || "").toLowerCase().includes(q));
     if (match) state.scale === "epci" ? selectEpci(match.code) : selectCommune(match.code);
+    searchResults.hidden = true;
   });
   searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") searchButton.click();
@@ -377,7 +385,10 @@
     const c = state.communesByCode.get(code);
     if (c) {
       searchInput.value = c.name;
-      map.setView([c.lat, c.lon], Math.max(map.getZoom(), 11), { animate: false });
+      let targetLayer = null;
+      communesLayer?.eachLayer((layer) => { if (layer.feature.properties.code === code) targetLayer = layer; });
+      if (targetLayer) map.fitBounds(targetLayer.getBounds(), { padding: [80, 80], animate: false, maxZoom: 14 });
+      else map.setView([c.lat, c.lon], Math.max(map.getZoom(), 13), { animate: false });
       document.getElementById("mapStatus").textContent = `${c.name} · profil affiché`;
     }
     applyChoropleth();

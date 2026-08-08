@@ -39,7 +39,8 @@ a{color:var(--blue)}
 .search-box>div{display:flex;height:36px;border:1px solid #bccbd2;border-radius:12px;overflow:hidden}
 .search-box input{border:0;padding:0 12px;width:100%;outline:0;font-size:13px}
 .search-box button{width:36px;border:0;background:var(--navy);color:#fff;font-weight:700;font-size:13px}
-.search-results{position:absolute;left:20px;right:20px;top:218px;width:auto;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line);border-radius:12px;z-index:1002;overflow:hidden;max-height:230px;overflow-y:auto}
+.search-wrap{position:relative}
+.search-results{position:absolute;left:20px;right:20px;top:100%;margin-top:4px;width:auto;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line);border-radius:12px;z-index:1002;overflow:hidden;max-height:230px;overflow-y:auto}
 .search-results button{width:100%;text-align:left;background:#fff;border:0;border-bottom:1px solid var(--line);padding:11px 13px;font-size:12px}
 .search-results button:hover{background:var(--pale)}
 .search-results button b,.search-results button small{display:block}.search-results button b{color:var(--navy);font-size:11px}.search-results button small{margin-top:2px;color:var(--muted);font-size:8px;text-transform:uppercase;letter-spacing:.06em}
