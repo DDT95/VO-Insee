@@ -145,6 +145,13 @@ def build_habitants(df_geo):
         ("NBFAM_NCH_CH3_Y_LT25", "3 enfants"), ("NBFAM_NCH_CH_GE4_Y_LT25", "4 enfants ou plus"),
     ], fam_children_total)
 
+    csp_total = val_of(df_geo, "POP_AGE_Y_GE15")
+    csp_population = series_from_codes(df_geo, [
+        ("POP_AGE_Y_GE15_PCS_3", "Cadres et professions intellectuelles supérieures"), ("POP_AGE_Y_GE15_PCS_4", "Professions intermédiaires"),
+        ("POP_AGE_Y_GE15_PCS_5", "Employés"), ("POP_AGE_Y_GE15_PCS_6", "Ouvriers"), ("POP_AGE_Y_GE15_PCS_2", "Artisans, commerçants, chefs d'entreprise"),
+        ("POP_AGE_Y_GE15_PCS_1", "Agriculteurs"), ("POP_AGE_Y_GE15_PCS_7", "Retraités"), ("POP_AGE_Y_GE15_PCS_9", "Autres inactifs (dont étudiants)"),
+    ], csp_total)
+
     return {
         "pyramide_ages": {"quality_flag": "ok" if pyramide else ("secret" if any_secret else "missing"), "annee": 2023, "source": "insee_dossier_complet", "tranches": pyramide},
         "diplomes": {"quality_flag": "ok" if diploma else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Population non scolarisée de 15 ans ou plus.", "repartition": diploma},
@@ -153,6 +160,7 @@ def build_habitants(df_geo):
         "scolarisation": {"quality_flag": "ok" if scolarisation else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Taux de scolarisation par tranche d'âge.", "par_tranche": scolarisation},
         "mobilite_residentielle": {"quality_flag": "ok" if mobilite else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Lieu de résidence un an auparavant, population de 1 an ou plus.", "repartition": mobilite},
         "nombre_enfants": {"quality_flag": "ok" if nombre_enfants else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Enfants de moins de 25 ans par famille.", "repartition": nombre_enfants},
+        "categorie_socioprofessionnelle": {"quality_flag": "ok" if csp_population else "missing", "annee": 2023, "source": "insee_dossier_complet", "note": "Population totale de 15 ans ou plus (actifs, retraités, inactifs) — pas seulement les actifs occupés (voir Emploi & Mobilités).", "repartition": csp_population},
         "revenus_pauvrete": {
             "niveau_vie_median": pick(df_geo, "MED_SL"),
             "taux_pauvrete": pick(df_geo, "PR_MD60"),

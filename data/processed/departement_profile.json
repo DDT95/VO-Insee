@@ -728,6 +728,54 @@
       "pct": 4.5
      }
     ]
+   },
+   "categorie_socioprofessionnelle": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Population totale de 15 ans ou plus (actifs, retraités, inactifs) — pas seulement les actifs occupés (voir Emploi & Mobilités).",
+    "repartition": [
+     {
+      "label": "Cadres et professions intellectuelles supérieures",
+      "value": 138618.2,
+      "pct": 13.7
+     },
+     {
+      "label": "Professions intermédiaires",
+      "value": 166778.3,
+      "pct": 16.5
+     },
+     {
+      "label": "Employés",
+      "value": 176193.2,
+      "pct": 17.4
+     },
+     {
+      "label": "Ouvriers",
+      "value": 102688.4,
+      "pct": 10.2
+     },
+     {
+      "label": "Artisans, commerçants, chefs d'entreprise",
+      "value": 34018.3,
+      "pct": 3.4
+     },
+     {
+      "label": "Agriculteurs",
+      "value": 549.2,
+      "pct": 0.1
+     },
+     {
+      "label": "Retraités",
+      "value": 200846.0,
+      "pct": 19.9
+     },
+     {
+      "label": "Autres inactifs (dont étudiants)",
+      "value": 193157.3,
+      "pct": 19.1
+     }
+    ]
    }
   },
   "economie_equipements": {

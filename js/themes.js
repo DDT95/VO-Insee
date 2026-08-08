@@ -57,6 +57,13 @@
             { key: "part_stabilite", label: "Part n'ayant pas déménagé (1 an)", unit: "%", ramp: ["#eef7ee", "#18753c", "#0c3a1e"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.mobilite_residentielle?.repartition, "N'a pas déménagé") },
           ],
         },
+        {
+          title: "CATÉGORIE SOCIOPROFESSIONNELLE (POPULATION ENTIÈRE)",
+          layers: [
+            { key: "part_cadres_pop", label: "Part de cadres (population 15+)", unit: "%", ramp: ["#eef2f9", "#3978b8", "#0b2f57"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.categorie_socioprofessionnelle?.repartition, "Cadres et professions intellectuelles supérieures") },
+            { key: "part_retraites", label: "Part de retraités", unit: "%", ramp: ["#f3eef9", "#6f4c9b", "#2e1a4d"], get: (p) => window.VOInsee.helpers.findPct(p.themes.habitants.categorie_socioprofessionnelle?.repartition, "Retraités") },
+          ],
+        },
       ],
       scopeNote: "Revenus/pauvreté (Filosofi 2023) et diplômes/familles/âges (RP2023) : les petites communes peuvent être secrétisées (secret statistique), affichées en gris plutôt qu'estimées.",
       ranking: { label: "Les plus peuplées", unit: "hab.", direction: "desc", get: (p) => p.themes.habitants.population_totale.value },
