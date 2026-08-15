@@ -399,7 +399,9 @@
       return;
     }
 
-    const body = DETAIL_RENDERERS[state.activeTheme](profile, name, isEpci ? "EPCI" : "Commune");
+    const isDepartement = !code;
+    const territoryWord = isDepartement ? "le Val-d'Oise" : isEpci ? "l'EPCI" : "la commune";
+    const body = window.VOInsee.reportRenderers[state.activeTheme](profile.themes, territoryWord, profile);
     const fullFicheUrl = (code ? (isEpci ? `fiche.html?type=epci&id=${encodeURIComponent(code)}` : `fiche.html?type=commune&id=${encodeURIComponent(code)}`) : "fiche.html?type=departement") + `&theme=${encodeURIComponent(state.activeTheme)}`;
 
     content.innerHTML = `
