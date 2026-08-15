@@ -124,7 +124,6 @@ input[type="range"]{width:100%;accent-color:var(--blue)}
 .synthesis-dashboard-head p{margin:0;color:var(--muted);font-size:12px;max-width:520px}
 .synthesis-dashboard .kpi-grid{margin-top:16px}
 .synthesis-dashboard .section-block{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
-.synthesis-dashboard .theme-summary-list{margin-top:10px}
 @media(max-width:700px){.synthesis-dialog{width:calc(100% - 20px);padding:20px 16px}}
 .dialog-close{position:absolute;right:16px;top:14px;width:34px;height:34px;border:0;border-radius:50%;background:#eff3f4;color:var(--navy);font-size:21px}
 .dialog-header h2{font-size:28px;color:var(--navy);margin:6px 0}

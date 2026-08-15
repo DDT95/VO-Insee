@@ -441,8 +441,16 @@ body {
 .segment-legend > div {
   display: grid;
   grid-template-columns: 9px minmax(0, 1fr) auto;
-  gap: 8px;
-  align-items: center;
+  gap: 4px 8px;
+  align-items: start;
+}
+.chart-legend i,
+.segment-legend i {
+  margin-top: 3px;
+}
+.chart-legend b,
+.segment-legend b {
+  white-space: nowrap;
 }
 .chart-legend i,
 .segment-legend i {

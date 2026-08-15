@@ -401,18 +401,38 @@
 
     const isDepartement = !code;
     const territoryWord = isDepartement ? "le Val-d'Oise" : isEpci ? "l'EPCI" : "la commune";
-    const body = window.VOInsee.reportRenderers[state.activeTheme](profile.themes, territoryWord, profile);
     const fullFicheUrl = (code ? (isEpci ? `fiche.html?type=epci&id=${encodeURIComponent(code)}` : `fiche.html?type=commune&id=${encodeURIComponent(code)}`) : "fiche.html?type=departement") + `&theme=${encodeURIComponent(state.activeTheme)}`;
 
+    let headHtml, body;
+    if (isDepartement) {
+      // Synthèse complète du département, à l'instar des dossiers Insee : les 4 thèmes intégralement, pas un résumé.
+      headHtml = `
+        <div class="synthesis-dashboard-head">
+          <span class="detail-tag">DONNÉES &amp; ÉVOLUTIONS · SYNTHÈSE DÉPARTEMENTALE</span>
+          <h2 id="synthesisTitle">Portrait complet du Val-d'Oise</h2>
+          <p>Habitants, emploi &amp; mobilités, logement, économie &amp; équipements — l'ensemble des indicateurs disponibles pour le département.</p>
+        </div>`;
+      body = Object.keys(THEMES).map((key) => {
+        const t = THEMES[key];
+        return `<div class="theme-part" id="synth-part-${key}">
+          <div class="theme-part-header" style="--tc:${t.color}"><span>${t.label.toUpperCase()}</span><h2>${t.label}</h2></div>
+          ${window.VOInsee.reportRenderers[key](profile.themes, territoryWord, profile)}
+        </div>`;
+      }).join("");
+    } else {
+      headHtml = `
+        <div class="synthesis-dashboard-head">
+          <span class="detail-tag">DONNÉES &amp; ÉVOLUTIONS · ${territoryType.toUpperCase()}</span>
+          <h2 id="synthesisTitle">${theme.label} · ${name}</h2>
+          <p>${theme.intro}</p>
+        </div>`;
+      body = window.VOInsee.reportRenderers[state.activeTheme](profile.themes, territoryWord, profile);
+    }
+
     content.innerHTML = `
-      <div class="synthesis-dashboard-head">
-        <span class="detail-tag">DONNÉES &amp; ÉVOLUTIONS · ${territoryType.toUpperCase()}</span>
-        <h2 id="synthesisTitle">${theme.label} · ${name}</h2>
-        <p>${theme.intro}</p>
-      </div>
+      ${headHtml}
       ${body}
-      ${renderCrossThemeSummary(profile)}
-      <a class="profile-link" href="${fullFicheUrl}" target="_blank" rel="noopener">Ouvrir la fiche complète (4 thèmes) et les options PDF <span>→</span></a>
+      <a class="profile-link" href="${fullFicheUrl}" target="_blank" rel="noopener">${isDepartement ? "Ouvrir la version imprimable et les options PDF" : "Ouvrir la fiche complète (4 thèmes) et les options PDF"} <span>→</span></a>
     `;
     if (!synthesisDialog.open) synthesisDialog.showModal();
   }
@@ -541,29 +561,9 @@
       <p class="subtitle">${theme.intro}</p>
       ${partialNote}
       ${body}
-      ${renderCrossThemeSummary(p)}
       <a class="profile-link" href="${profileUrl}" target="_blank" rel="noopener">Voir la fiche ${isEpci ? "EPCI" : "communale"} complète et le PDF <span>↗</span></a>
     `;
     detailPanel.classList.add("open");
-  }
-
-  // ---------- Synthèse croisée (autres thèmes, en vraies mini data-viz) ----------
-  function renderCrossThemeSummary(p) {
-    const otherKeys = Object.keys(THEMES).filter((k) => k !== state.activeTheme);
-    const cards = otherKeys.map((key) => {
-      const t = THEMES[key];
-      const flatLayers = [];
-      t.groups.forEach((g) => g.layers.forEach((l) => { if (l.unit === "%") flatLayers.push(l); }));
-      const picks = flatLayers.slice(0, 2);
-      const rows = picks.map((l) => {
-        let v = null;
-        try { v = l.get(p); } catch (err) { v = null; }
-        const pct = v == null ? 0 : Math.max(0, Math.min(100, v));
-        return `<div class="mini-bar-row"><span title="${l.label}">${l.label}</span><div class="mini-bar-track"><i style="--pct:${pct}%;--bc:${t.color}"></i></div><b>${v == null ? "n. d." : fmt(v, "%")}</b></div>`;
-      }).join("");
-      return `<div class="theme-summary-card" style="--tc:${t.color}"><strong>${t.label}</strong>${rows || '<p class="data-missing-mini">Données non disponibles.</p>'}</div>`;
-    }).join("");
-    return `<div class="section-block"><strong>Les autres thèmes en bref</strong><div class="theme-summary-list">${cards}</div></div>`;
   }
 
   // ---------- Vue par défaut (aucune sélection) : panneau fermé, synthèse dispo via "Données & évolutions" ----------
