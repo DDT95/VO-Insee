@@ -118,6 +118,14 @@ input[type="range"]{width:100%;accent-color:var(--blue)}
 
 .dialog{border:0;border-radius:14px;box-shadow:var(--shadow);width:min(860px,calc(100% - 40px));max-height:calc(100% - 40px);padding:32px;background:#f7f9fa;overflow:auto}
 .dialog::backdrop{background:rgba(0,20,40,.65);backdrop-filter:blur(3px)}
+.synthesis-dialog{width:min(920px,calc(100% - 40px));max-height:calc(100% - 40px);padding:30px;background:#f7f8fa}
+.synthesis-dashboard-head{margin-bottom:6px}
+.synthesis-dashboard-head h2{margin:8px 0 4px;color:var(--navy);font-size:26px;letter-spacing:-.03em}
+.synthesis-dashboard-head p{margin:0;color:var(--muted);font-size:12px;max-width:520px}
+.synthesis-dashboard .kpi-grid{margin-top:16px}
+.synthesis-dashboard .section-block{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.synthesis-dashboard .theme-summary-list{margin-top:10px}
+@media(max-width:700px){.synthesis-dialog{width:calc(100% - 20px);padding:20px 16px}}
 .dialog-close{position:absolute;right:16px;top:14px;width:34px;height:34px;border:0;border-radius:50%;background:#eff3f4;color:var(--navy);font-size:21px}
 .dialog-header h2{font-size:28px;color:var(--navy);margin:6px 0}
 .dialog-header p{color:var(--muted);font-size:13px;margin:0 0 24px;max-width:760px}

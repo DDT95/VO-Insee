@@ -368,12 +368,59 @@
   comprendreDialog.querySelectorAll("[data-close]").forEach((btn) => btn.addEventListener("click", () => comprendreDialog.close()));
   comprendreDialog.addEventListener("click", (e) => { if (e.target === comprendreDialog) comprendreDialog.close(); });
 
-  function openTerritoryData() {
-    const themeParam = `&theme=${encodeURIComponent(state.activeTheme)}`;
-    const url = !state.selected ? "fiche.html?type=departement" + themeParam : state.scale === "epci" ? `fiche.html?type=epci&id=${encodeURIComponent(state.selected)}${themeParam}` : `fiche.html?type=commune&id=${encodeURIComponent(state.selected)}${themeParam}`;
-    ["openData", "openDataTop"].forEach((id) => document.getElementById(id)?.setAttribute("href", url));
+  // ---------- Données & évolutions (fenêtre dans la page, pas une nouvelle page) ----------
+  function openSynthesisPanel() {
+    const synthesisDialog = document.getElementById("synthesisDialog");
+    const content = document.getElementById("synthesisContent");
+    const theme = THEMES[state.activeTheme];
+    let profile = state.department;
+    let name = "Val-d'Oise";
+    let territoryType = "Synthèse départementale";
+    let isEpci = false;
+    let code = null;
+
+    if (state.selected && state.scale === "epci") {
+      profile = state.epcisByCode.get(state.selected);
+      name = profile?.name || name;
+      territoryType = profile?.special ? "Synthèse communale" : "Synthèse EPCI";
+      isEpci = true;
+      code = state.selected;
+    } else if (state.selected) {
+      const c = state.communesByCode.get(state.selected);
+      profile = c?.profile;
+      name = c?.name || name;
+      territoryType = "Synthèse communale";
+      code = state.selected;
+    }
+
+    if (!profile) {
+      content.innerHTML = `<div class="synthesis-dashboard-head"><span class="detail-tag">DONNÉES &amp; ÉVOLUTIONS</span><h2 id="synthesisTitle">Préparation de la synthèse…</h2><p>Les indicateurs territoriaux sont en cours de chargement.</p></div>`;
+      if (!synthesisDialog.open) synthesisDialog.showModal();
+      return;
+    }
+
+    const body = DETAIL_RENDERERS[state.activeTheme](profile, name, isEpci ? "EPCI" : "Commune");
+    const fullFicheUrl = (code ? (isEpci ? `fiche.html?type=epci&id=${encodeURIComponent(code)}` : `fiche.html?type=commune&id=${encodeURIComponent(code)}`) : "fiche.html?type=departement") + `&theme=${encodeURIComponent(state.activeTheme)}`;
+
+    content.innerHTML = `
+      <div class="synthesis-dashboard-head">
+        <span class="detail-tag">DONNÉES &amp; ÉVOLUTIONS · ${territoryType.toUpperCase()}</span>
+        <h2 id="synthesisTitle">${theme.label} · ${name}</h2>
+        <p>${theme.intro}</p>
+      </div>
+      ${body}
+      ${renderCrossThemeSummary(profile)}
+      <a class="profile-link" href="${fullFicheUrl}" target="_blank" rel="noopener">Ouvrir la fiche complète (4 thèmes) et les options PDF <span>→</span></a>
+    `;
+    if (!synthesisDialog.open) synthesisDialog.showModal();
   }
-  ["openData", "openDataTop"].forEach((id) => ["pointerdown", "click"].forEach((eventName) => document.getElementById(id)?.addEventListener(eventName, openTerritoryData)));
+
+  document.getElementById("openData")?.addEventListener("click", openSynthesisPanel);
+  document.getElementById("openDataTop")?.addEventListener("click", openSynthesisPanel);
+
+  const synthesisDialog = document.getElementById("synthesisDialog");
+  synthesisDialog.querySelectorAll("[data-close]").forEach((btn) => btn.addEventListener("click", () => synthesisDialog.close()));
+  synthesisDialog.addEventListener("click", (e) => { if (e.target === synthesisDialog) synthesisDialog.close(); });
 
   // ---------- Selection ----------
   function selectFromMap(code) {
