@@ -814,13 +814,28 @@ body {
     max-width: none;
     padding: 0;
   }
+  * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
   .report-cover {
-    min-height: 273mm;
+    min-height: 0;
     border-radius: 0;
-    page-break-after: always;
+    page-break-after: avoid;
   }
   .report-body {
     padding: 0;
+  }
+  .theme-part {
+    margin-top: 10mm;
+  }
+  .theme-part-header {
+    border-radius: 0;
+    break-inside: avoid;
+    break-before: page;
+  }
+  .theme-part:first-child .theme-part-header {
+    break-before: avoid;
   }
   .section {
     border-radius: 0;
