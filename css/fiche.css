@@ -389,14 +389,14 @@ body {
   background: #fff;
 }
 .donut-layout {
-  display: grid;
-  grid-template-columns: 164px minmax(0, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 164px;
+  gap: 18px;
 }
 .donut {
   width: 164px;
+  flex: none;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -436,6 +436,7 @@ body {
 .chart-legend {
   display: grid;
   gap: 9px;
+  width: 100%;
 }
 .chart-legend > div,
 .segment-legend > div {
