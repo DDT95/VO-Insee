@@ -254,6 +254,34 @@ body {
 .report-body {
   padding: 26px 0 50px;
 }
+.theme-part {
+  margin-top: 40px;
+}
+.theme-part:first-child {
+  margin-top: 0;
+}
+.theme-part-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 26px;
+  border-radius: 18px;
+  color: #fff;
+  background: var(--tc, #000091);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.theme-part-header span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+.theme-part-header h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
 .section {
   margin-top: 18px;
   padding: 28px;

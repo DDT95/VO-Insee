@@ -72,11 +72,12 @@
   }
 
   const THEME_META = {
-    habitants: { kicker: "HABITANTS", title: "Habitants" },
-    emploi_mobilites: { kicker: "EMPLOI & MOBILITÉS", title: "Emploi & Mobilités" },
-    logement: { kicker: "LOGEMENT", title: "Logement" },
-    economie_equipements: { kicker: "ÉCONOMIE & ÉQUIPEMENTS", title: "Économie & Équipements" },
+    habitants: { kicker: "HABITANTS", title: "Habitants", color: "#000091" },
+    emploi_mobilites: { kicker: "EMPLOI & MOBILITÉS", title: "Emploi & Mobilités", color: "#18753c" },
+    logement: { kicker: "LOGEMENT", title: "Logement", color: "#6f4c9b" },
+    economie_equipements: { kicker: "ÉCONOMIE & ÉQUIPEMENTS", title: "Économie & Équipements", color: "#c76524" },
   };
+  const THEME_ORDER = ["habitants", "emploi_mobilites", "logement", "economie_equipements"];
 
   function renderHabitants(t, territoryWord) {
     const h = t.habitants;
@@ -218,19 +219,26 @@
     currentProfile = profile;
     const isDepartement = scale === "departement";
     const isEpci = scale === "epci" && !profile.special;
-    const territoryTitle = isDepartement ? "Le Val-d'Oise" : isEpci ? "L'EPCI" : "La commune";
     const territoryWord = isDepartement ? "le Val-d'Oise" : isEpci ? "l'EPCI" : "la commune";
-    const meta = THEME_META[theme];
-    document.title = `${name} · ${meta.title} · DDT 95`;
-    headerTitle.textContent = `${isDepartement ? "Synthèse départementale" : isEpci ? "Fiche EPCI" : "Fiche communale"} · ${meta.title}`;
+    document.title = `${name} · Portrait Insee complet · DDT 95`;
+    headerTitle.textContent = `${isDepartement ? "Synthèse départementale" : isEpci ? "Fiche EPCI" : "Fiche communale"} · Portrait complet`;
 
-    const body = RENDERERS[theme](profile.themes, territoryWord, profile);
+    // Le thème d'où vient l'utilisateur est affiché en premier ; les trois autres suivent,
+    // pour que la fiche reste contextuelle tout en donnant TOUTES les catégories.
+    const orderedThemes = [theme, ...THEME_ORDER.filter((k) => k !== theme)];
+    const body = orderedThemes.map((key) => {
+      const meta = THEME_META[key];
+      return `<div class="theme-part" id="part-${key}">
+        <div class="theme-part-header" style="--tc:${meta.color}"><span>${meta.kicker}</span><h2>${meta.title}</h2></div>
+        ${RENDERERS[key](profile.themes, territoryWord, profile)}
+      </div>`;
+    }).join("");
 
     root.innerHTML = `<div id="report">
       <section class="report-cover">
-        <div class="cover-kicker">${isDepartement ? "SYNTHÈSE DÉPARTEMENTALE" : isEpci ? "FICHE INTERCOMMUNALE" : "FICHE COMMUNALE"} · ${meta.kicker}</div>
+        <div class="cover-kicker">${isDepartement ? "SYNTHÈSE DÉPARTEMENTALE" : isEpci ? "FICHE INTERCOMMUNALE" : "FICHE COMMUNALE"} · PORTRAIT COMPLET</div>
         <h1>${name}</h1>
-        <p>${meta.title} dans ${territoryWord} — données Insee, réutilisées et documentées.</p>
+        <p>Habitants, Emploi &amp; Mobilités, Logement, Économie &amp; Équipements dans ${territoryWord} — toutes les données Insee disponibles, réunies et documentées.</p>
         <div class="cover-meta"><span>Portrait Insee · DDT du Val-d'Oise</span><span>${new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long" })}</span></div>
       </section>
       <div class="report-body">${body}</div>
@@ -272,7 +280,7 @@
     try {
       await html2pdf().set({
         margin: 0,
-        filename: `fiche-${theme}-${name}.pdf`,
+        filename: `fiche-complete-${name}.pdf`,
         image: { type: "jpeg", quality: 0.96 },
         html2canvas: { scale: 2, useCORS: true, letterRendering: true },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
