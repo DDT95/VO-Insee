@@ -32,6 +32,12 @@
     return map;
   }
 
+  // Toutes les couches de tous les thèmes, à plat : les clés sont uniques sur l'ensemble
+  // du site, donc la page d'impression peut retrouver n'importe quelle couche active
+  // sans connaître le thème dont elle vient.
+  const ALL_LAYERS = {};
+  Object.values(THEMES).forEach((t) => t.groups.forEach((g) => g.layers.forEach((l) => (ALL_LAYERS[l.key] = l))));
+
   // ---------- Map ----------
   const VDO_CENTER = [49.05, 2.15];
   const EPCI_COLORS = ["#18753c", "#6f4c9b", "#009099", "#c76524", "#d64d70", "#477a3c", "#ce0500", "#b88a16", "#45556c", "#3978b8"];
@@ -573,4 +579,48 @@
   }
 
   document.getElementById("closeDetail").addEventListener("click", () => document.getElementById("detailPanel").classList.remove("open"));
+
+  // ---------- Impression A3 ----------
+  function printTerritories() {
+    const source = state.scale === "epci" ? epciLayer : communesLayer;
+    if (!source) return { type: "FeatureCollection", features: [] };
+    const layers = layersForActiveTheme();
+    const layerDef = state.activeLayer ? layers[state.activeLayer] : null;
+    const features = [];
+    source.eachLayer((layer) => {
+      if (!layer.feature) return;
+      const feature = layer.toGeoJSON();
+      const code = layer.feature.properties.code;
+      const printValue = layerDef
+        ? (state.scale === "epci" ? layerDef.get(state.epcisByCode.get(code)) : valueForTerritoryCode(code))
+        : null;
+      feature.properties = { ...feature.properties, _printValue: printValue, _printStyle: {
+        color: layer.options.color,
+        weight: layer.options.weight,
+        opacity: layer.options.opacity,
+        fillColor: layer.options.fillColor,
+        fillOpacity: layer.options.fillOpacity,
+      } };
+      features.push(feature);
+    });
+    return { type: "FeatureCollection", features };
+  }
+
+  function printOverlays() {
+    return [];
+  }
+
+  window.voInseeApp = {
+    state,
+    map,
+    layers: ALL_LAYERS,
+    theme: () => THEMES[state.activeTheme],
+    department: () => deptLayer?.toGeoJSON(),
+    territories: printTerritories,
+    overlays: printOverlays,
+  };
+  document.getElementById("printMap")?.addEventListener("click", () => {
+    const preview = new URLSearchParams(location.search).has("printPreview");
+    window.open(`print.html${preview ? "?preview=1" : ""}`, "_blank");
+  });
 })();
