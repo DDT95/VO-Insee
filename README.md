@@ -63,4 +63,4 @@ python3 scripts/build_dossier_complet.py
 
 ## Sources principales
 
-Insee (Base du dossier complet — RP2023, Filosofi 2023, REE 2024, BPE 2025 ; RP2022 Mobilités professionnelles ; RP2023 Logement ; populations légales), SDES (RPLS), et les dépôts [`val-doise-logement-habitat`](https://github.com/DDT95/val-doise-logement-habitat) / [`val-doise-domicile-travail`](https://github.com/DDT95/val-doise-domicile-travail). Détail complet dans `data/sources.json`.
+Insee (Base du dossier complet — RP2023, Filosofi 2023, REE 2024, BPE 2025 ; RP2023 Mobilités professionnelles ; RP2023 Logement ; populations légales), SDES (RPLS), et les dépôts [`val-doise-logement-habitat`](https://github.com/DDT95/val-doise-logement-habitat) / [`val-doise-domicile-travail`](https://github.com/DDT95/val-doise-domicile-travail). Détail complet dans `data/sources.json`.

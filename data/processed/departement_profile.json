@@ -351,174 +351,118 @@
    }
   },
   "emploi_mobilites": {
-   "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
-   "actifs_occupes_residents": 550530.5,
+   "scope_note": "Champs calculés sur les actifs occupés résidents de 15 ans ou plus (Insee RP2023, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale de la commune.",
+   "actifs_occupes_residents": 559153.4,
    "profession": [
     {
      "label": "Agriculteur",
-     "value": 551.0,
+     "value": 525.1000000000001,
      "pct": 0.1
     },
     {
      "label": "Artisan, commerçant et chef d'entreprise",
-     "value": 29839.90000000002,
-     "pct": 5.4
+     "value": 31885.1,
+     "pct": 5.7
     },
     {
      "label": "Cadres",
-     "value": 125287.40000000005,
-     "pct": 22.8
+     "value": 132986.20000000007,
+     "pct": 23.8
     },
     {
      "label": "Profession intermédiaire",
-     "value": 154659.79999999993,
-     "pct": 28.1
+     "value": 154686.4999999999,
+     "pct": 27.7
     },
     {
      "label": "Employé",
-     "value": 151548.69999999992,
-     "pct": 27.5
+     "value": 152240.80000000008,
+     "pct": 27.2
     },
     {
      "label": "Ouvrier",
-     "value": 88643.09999999998,
-     "pct": 16.1
+     "value": 86829.59999999999,
+     "pct": 15.5
     }
    ],
    "employment": [
     {
      "label": "Emploi stable",
-     "value": 437859.7,
-     "pct": 79.5
+     "value": 441714.10000000015,
+     "pct": 79.0
     },
     {
      "label": "Contrat court / insertion",
-     "value": 63799.100000000006,
-     "pct": 11.6
+     "value": 66180.7,
+     "pct": 11.8
     },
     {
      "label": "Indépendant / employeur",
-     "value": 48871.19999999997,
-     "pct": 8.9
+     "value": 51258.200000000004,
+     "pct": 9.2
     }
    ],
    "worktime": [
     {
      "label": "Temps complet",
-     "value": 481653.7999999996,
-     "pct": 87.5
+     "value": 489866.70000000007,
+     "pct": 87.6
     },
     {
      "label": "Temps partiel",
-     "value": 68876.0,
-     "pct": 12.5
+     "value": 69286.49999999997,
+     "pct": 12.4
     }
    ],
    "transport": [
     {
      "label": "Pas de transport",
-     "value": 15180.9,
-     "pct": 2.8
+     "value": 15158.699999999999,
+     "pct": 2.7
     },
     {
      "label": "Marche à pied (ou rollers, patinette)",
-     "value": 25185.19999999999,
-     "pct": 4.6
+     "value": 26496.699999999997,
+     "pct": 4.7
     },
     {
      "label": "Vélo (y compris à assistance électrique)",
-     "value": 7346.200000000002,
-     "pct": 1.3
+     "value": 7860.400000000001,
+     "pct": 1.4
     },
     {
      "label": "Deux-roues motorisé",
-     "value": 10313.099999999999,
-     "pct": 1.9
+     "value": 9968.000000000004,
+     "pct": 1.8
     },
     {
      "label": "Voiture, camion, fourgonnette",
-     "value": 290843.29999999993,
-     "pct": 52.8
+     "value": 292660.8,
+     "pct": 52.3
     },
     {
      "label": "Transports en commun",
-     "value": 201661.99999999997,
-     "pct": 36.6
+     "value": 207008.9000000001,
+     "pct": 37.0
     }
    ],
    "cars": [
     {
      "label": "Sans voiture",
-     "value": 64914.799999999996,
-     "pct": 11.8
+     "value": 68550.9,
+     "pct": 12.3
     },
     {
      "label": "Une voiture",
-     "value": 244288.7,
-     "pct": 44.6
+     "value": 245431.19999999998,
+     "pct": 44.1
     },
     {
      "label": "Deux voitures ou plus",
-     "value": 238647.4000000001,
+     "value": 242663.5000000001,
      "pct": 43.6
     }
-   ],
-   "chomage_rp": {
-    "quality_flag": "ok",
-    "annee": 2023,
-    "source": "insee_dossier_complet",
-    "scope_note": "Chômage au sens du recensement, population 15-64 ans — champ RP, distinct des actifs occupés résidents MOBPRO ci-dessus.",
-    "taux_chomage_15_64": {
-     "value": 11.8,
-     "unit": "%",
-     "quality_flag": "ok",
-     "source": "insee_dossier_complet"
-    }
-   },
-   "salaires": {
-    "quality_flag": "ok",
-    "annee": 2023,
-    "source": "insee_dossier_complet",
-    "note": "Salaire net mensuel moyen en équivalent temps plein (EQTP).",
-    "par_sexe": {
-     "ensemble": {
-      "value": 2642.744878,
-      "year": 2023,
-      "source": "insee_dossier_complet",
-      "quality_flag": "ok"
-     },
-     "hommes": {
-      "value": 2730.369832,
-      "year": 2023,
-      "source": "insee_dossier_complet",
-      "quality_flag": "ok"
-     },
-     "femmes": {
-      "value": 2487.107748,
-      "year": 2023,
-      "source": "insee_dossier_complet",
-      "quality_flag": "ok"
-     }
-    },
-    "par_csp": [
-     {
-      "label": "Cadres",
-      "value": 4576.0
-     },
-     {
-      "label": "Professions intermédiaires",
-      "value": 2706.0
-     },
-     {
-      "label": "Employés",
-      "value": 1998.0
-     },
-     {
-      "label": "Ouvriers",
-      "value": 1983.0
-     }
-    ]
-   }
+   ]
   },
   "habitants": {
    "population_totale": {

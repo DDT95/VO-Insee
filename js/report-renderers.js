@@ -103,7 +103,7 @@
       </div>${salaires && salaires.par_csp && salaires.par_csp.length ? barsValue("Salaire net mensuel moyen par catégorie", salaires.par_csp, " €") : ""}`, chomage ? chomage.scope_note : "")}
       ${section("05 · DÉPLACEMENTS DOMICILE-TRAVAIL", "Comment les actifs se déplacent-ils ?", `<div class="charts-grid visual-grid">${bars("Mode de transport principal", asDonut(e.transport))}${donut("Nombre de voitures du ménage", asDonut(e.cars), "sans voiture", (e.cars && e.cars.find((r) => r.label === "Sans voiture") || {}).pct + "%", "orange")}</div>`)}
       ${section("06 · SOURCES ET MÉTHODE", "Bien lire cette fiche", `<div class="method-note">
-        <strong>Source :</strong> Insee, RP2022, fichier détail Mobilités professionnelles, pondéré par IPONDI (CSP, emploi, déplacements) ; Insee RP2023 (chômage au sens du recensement) ; Insee-DADS 2023 (salaires nets EQTP).<br><br>
+        <strong>Source :</strong> Insee, RP2023, fichier détail Mobilités professionnelles, pondéré par IPONDI (CSP, emploi, déplacements) ; Insee RP2023 (chômage au sens du recensement) ; Insee-DADS 2023 (salaires nets EQTP).<br><br>
         <strong>Limites :</strong> ${e.scope_note} ${chomage ? chomage.scope_note : ""} Effectifs pondérés par sondage ; comparaisons déconseillées sur les petits territoires à faible effectif.<br><br>
         <strong>Licence :</strong> Licence Ouverte / Etalab.
       </div>`)}

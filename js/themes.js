@@ -78,7 +78,7 @@
       label: "Emploi & Mobilités",
       color: "#18753c",
       intro: "Actifs occupés résidents : catégories socioprofessionnelles, emploi, déplacements domicile-travail.",
-      scopeNote: "Ces indicateurs portent sur les actifs occupés résidents de 15 ans ou plus (RP2022, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale.",
+      scopeNote: "Ces indicateurs portent sur les actifs occupés résidents de 15 ans ou plus (RP2023, fichier détail Mobilités professionnelles, poids IPONDI) — pas sur la population générale.",
       groups: [
         {
           title: "CATÉGORIES SOCIOPROFESSIONNELLES",

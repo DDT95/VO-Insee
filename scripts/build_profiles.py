@@ -20,7 +20,7 @@ OUT = ROOT / "data" / "processed"
 
 MOBPRO_SCOPE_NOTE = (
     "Champs calculés sur les actifs occupés résidents de 15 ans ou plus "
-    "(Insee RP2022, fichier détail Mobilités professionnelles, poids IPONDI) "
+    "(Insee RP2023, fichier détail Mobilités professionnelles, poids IPONDI) "
     "— pas sur la population générale de la commune."
 )
 

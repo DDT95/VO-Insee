@@ -19,12 +19,12 @@
     "granularite": "commune, EPCI, département",
     "prudence": "Filosofi (revenus, pauvreté) masque les communes de moins de 50 ménages fiscaux — secret statistique respecté, jamais affiché comme zéro. Diplômes calculés sur la population non scolarisée de 15 ans ou plus. Effectifs RP pondérés par sondage."
   },
-  "insee_mobpro_2022": {
+  "insee_mobpro_2023": {
     "producteur": "Insee",
-    "jeu": "RP2022 — fichier détail Mobilités professionnelles (MOBPRO), pondéré par IPONDI",
-    "page": "https://www.insee.fr/fr/statistiques/8589904",
-    "millesime": 2022,
-    "date_recuperation": "2026-08-06",
+    "jeu": "RP2023 — fichier détail Mobilités professionnelles (MOBPRO), pondéré par IPONDI",
+    "page": "https://www.insee.fr/fr/statistiques/9004795",
+    "millesime": 2023,
+    "date_recuperation": "2026-09-04",
     "licence": "Licence Ouverte / Open Licence 2.0",
     "granularite": "commune, agrégé en EPCI",
     "prudence": "Porte uniquement sur les actifs occupés résidents de 15 ans ou plus qui se déplacent pour travailler — pas sur la population générale. Effectifs pondérés par sondage.",
