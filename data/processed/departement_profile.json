@@ -462,7 +462,63 @@
      "value": 242663.5000000001,
      "pct": 43.6
     }
-   ]
+   ],
+   "chomage_rp": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "scope_note": "Chômage au sens du recensement, population 15-64 ans — champ RP, distinct des actifs occupés résidents MOBPRO ci-dessus.",
+    "taux_chomage_15_64": {
+     "value": 11.8,
+     "unit": "%",
+     "quality_flag": "ok",
+     "source": "insee_dossier_complet"
+    }
+   },
+   "salaires": {
+    "quality_flag": "ok",
+    "annee": 2023,
+    "source": "insee_dossier_complet",
+    "note": "Salaire net mensuel moyen en équivalent temps plein (EQTP).",
+    "par_sexe": {
+     "ensemble": {
+      "value": 2644.0,
+      "year": 2024,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "hommes": {
+      "value": 2732.0,
+      "year": 2024,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     },
+     "femmes": {
+      "value": 2488.0,
+      "year": 2024,
+      "source": "insee_dossier_complet",
+      "quality_flag": "ok"
+     }
+    },
+    "par_csp": [
+     {
+      "label": "Cadres",
+      "value": 4658.0
+     },
+     {
+      "label": "Professions intermédiaires",
+      "value": 2702.0
+     },
+     {
+      "label": "Employés",
+      "value": 1983.0
+     },
+     {
+      "label": "Ouvriers",
+      "value": 2018.0
+     }
+    ]
+   }
   },
   "habitants": {
    "population_totale": {
